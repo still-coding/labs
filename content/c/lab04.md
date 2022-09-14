@@ -4,7 +4,7 @@ summary: Вложенные циклы
 description: Вложенные циклы
 draft: false
 math: true
-weight: 4
+weight: 40
 robotsNoIndex: true
 ---
 

@@ -4,7 +4,7 @@ summary: Динамическое выделение памяти
 description: Динамическое выделение памяти
 draft: false
 math: false
-weight: 10
+weight: 100
 robotsNoIndex: true
 ---
 

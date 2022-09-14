@@ -4,7 +4,7 @@ summary: Строки
 description: Строки
 draft: false
 math: false
-weight: 9
+weight: 90
 robotsNoIndex: true
 ---
 
