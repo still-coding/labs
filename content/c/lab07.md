@@ -4,7 +4,7 @@ summary: Двухмерные массивы
 description: Двухмерные массивы
 draft: false
 math: true
-weight: 7
+weight: 70
 robotsNoIndex: true
 ---
 

@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C on Лабы</title>
+    <link>https://evil-teacher.on.fleek.co/c/</link>
+    <description>Recent content in C on Лабы</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language><atom:link href="https://evil-teacher.on.fleek.co/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Дополнительные материалы</title>
+      <link>https://evil-teacher.on.fleek.co/c/extras/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/extras/</guid>
+      <description>Всякое</description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №1</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab01/</guid>
+      <description>Ветвящиеся алгоритмы</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<ol>
+<li>Составьте блок-схему алгоритма для своего варианта.</li>
+<li>Напишите программу, решающую задачу по номеру своего варианта.</li>
+<li>Проанализируйте программу из примера. Какие изменения, исправления или оптимизации Вы бы внесли в неё?</li>
+</ol>
+<h3 id="пример">Пример</h3>
+<p>Вывести на экран и провести частичный анализ функции \( f(x) = ax^2 + bx + c \) в зависимости от коэффициентов \( a, b, c \).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Enter a -&gt; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Enter b -&gt; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Enter c -&gt; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;f(x) = &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f * x^2 &#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mf">0.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;+ &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f * x &#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="mf">0.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">||</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;+ &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;- &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="n">fabs</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">f_x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">f_minus_x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="o">-</span><span class="n">x</span> <span class="o">*</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">f_x</span> <span class="o">==</span> <span class="n">f_minus_x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Function is even: f(x) = %f = f(-x) = %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">f_x</span><span class="p">,</span> <span class="n">f_minus_x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">f_minus_x</span> <span class="o">==</span> <span class="o">-</span><span class="n">f_x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Function is odd: f(-x) = %f = -f(x) = %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">f_minus_x</span><span class="p">,</span> <span class="o">-</span><span class="n">f_x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span> <span class="p">(</span><span class="s">&#34;Function is neither even nor odd: \
+</span></span></span><span class="line"><span class="cl"><span class="s">            f(x) = %f != f(-x) = % f != -f(x) = %f</span><span class="se">\n</span><span class="s">&#34;</span> <span class="p">,</span> <span class="n">f_x</span> <span class="p">,</span> <span class="n">f_minus_x</span> <span class="p">,</span> <span class="o">-</span><span class="n">f_x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">vx</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0f</span> <span class="o">*</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">float</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Vertex (%f, %f) is a &#34;</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mf">0.0f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;minimum&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;maximum&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="результаты-работы-программы">Результаты работы программы</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enter a -&gt; 1
+</span></span><span class="line"><span class="cl">Enter b -&gt; -2
+</span></span><span class="line"><span class="cl">Enter c -&gt; 0.5
+</span></span><span class="line"><span class="cl">f(x) = 1.000000 * x^2 - 2.000000 * x + 0.500000
+</span></span><span class="line"><span class="cl">Function is neither even nor odd: f(x) = -0.500000 != f(-x) = 3.500000 != -f(x) = 0.500000
+</span></span><span class="line"><span class="cl">Vertex (1.000000 , -0.500000) is a minimum
+</span></span></code></pre></div><h4 id="блок-схема">Блок-схема</h4>
+
+<div style="text-align:center;">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="476px" height="1092px" version="1.1" content="&lt;mxfile userAgent=&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Atom/1.60.0 Chrome/83.0.4103.122 Electron/9.4.4 Safari/537.36&quot; version=&quot;9.1.0&quot; editor=&quot;www.draw.io&quot;&gt;&lt;diagram id=&quot;6d935a31-41d9-d8db-c7ac-43f1089267ad&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;"><defs/><g transform="translate(0.5,0.5)"><rect x="173" y="1" width="110" height="20" rx="10" ry="10" fill="none" stroke="currentColor" stroke-width="2" pointer-events="none"/><g transform="translate(205.5,4.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="44" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 44px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">Начало</div></div></foreignObject><text x="22" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">Начало</text></switch></g><path d="M 225 207 L 262 222 L 225 237 L 188 222 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(221.5,215.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="6" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 8px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">a</div></div></foreignObject><text x="3" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">a</text></switch></g><path d="M 228 21 L 227.8 33.1" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227.7 39.1 L 223.83 31.03 L 227.8 33.1 L 231.83 31.16 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(165.5,207.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(229.5,235.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><path d="M 177 41 L 288 41 L 288 71 L 167 71 L 167 51 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(209.5,49.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="35" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 35px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">a, b, c</div></div></foreignObject><text x="18" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">a, b, c</text></switch></g><path d="M 172 187 L 194 157 L 282 157 L 260 187 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(210.5,165.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="32" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 34px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">f(x) = </div></div></foreignObject><text x="16" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">f(x) = </text></switch></g><path d="M 54 287 L 74 257 L 154 257 L 134 287 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(84.5,265.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="38" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 40px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">a * x^2</div></div></foreignObject><text x="19" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">a * x^2</text></switch></g><path d="M 188 222 L 104 222 L 104 248.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 104 254.76 L 100 246.76 L 104 248.76 L 108 246.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 104 287 L 104 298.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 104 304.76 L 100 296.76 L 104 298.76 L 108 296.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 257 L 262 272 L 225 287 L 188 272 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(220.5,265.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="8" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 8px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">b</div></div></foreignObject><text x="4" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">b</text></switch></g><path d="M 225 237 L 225 248.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 254.76 L 221 246.76 L 225 248.76 L 229 246.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 281 317 L 301 287 L 381 287 L 361 317 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(317.5,295.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 26px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">b * x</div></div></foreignObject><text x="13" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">b * x</text></switch></g><path d="M 262 272 L 330.67 272 L 330.67 278.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 330.67 284.76 L 326.67 276.76 L 330.67 278.76 L 334.67 276.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 287 L 225 342.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 348.76 L 221 340.76 L 225 342.76 L 229 340.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 331 317 L 331 331 L 232.24 331" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 226.24 331 L 234.24 327 L 232.24 331 L 234.24 335 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(262.5,255.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(229.5,285.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><path d="M 225 351 L 262 366 L 225 381 L 188 366 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(221.5,359.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="6" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 8px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">c</div></div></foreignObject><text x="3" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">c</text></switch></g><path d="M 257 531 L 273 501 L 337 501 L 321 531 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(289.5,509.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="14" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 14px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">|c|</div></div></foreignObject><text x="7" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">|c|</text></switch></g><g transform="translate(338.5,384.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><path d="M 281 116 L 467 116 L 467 1051 L 235.24 1051" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 229.24 1051 L 237.24 1047 L 235.24 1051 L 237.24 1055 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227.5 91 L 281 116 L 227.5 141 L 174 116 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(188.5,109.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="77" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 79px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">!a &amp;&amp; !b &amp;&amp;!c</div></div></foreignObject><text x="39" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">!a &amp;&amp; !b &amp;&amp;!c</text></switch></g><path d="M 227.67 71 L 227.67 82.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227.67 88.76 L 223.67 80.76 L 227.67 82.76 L 231.67 80.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227.67 141 L 227.34 148.77" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227.09 154.77 L 223.43 146.61 L 227.34 148.77 L 231.42 146.94 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227 187 L 225 187 L 225 198.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 204.76 L 221 196.76 L 225 198.76 L 229 196.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(233.5,140.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><path d="M 104 309 L 141 324 L 104 339 L 67 324 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(89.5,317.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">b &gt; 0</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">b &gt; 0</text></switch></g><path d="M 54 386 L 74 356 L 154 356 L 134 386 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(99.5,364.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="8" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 8px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">+</div></div></foreignObject><text x="4" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">+</text></switch></g><path d="M 104 339 L 104 347.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 104 353.76 L 100 345.76 L 104 347.76 L 108 345.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 104 386 L 104 401 L 177 401 L 177 242 L 215.76 242" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 221.76 242 L 213.76 246 L 215.76 242 L 213.76 238 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(75.5,334.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(137.5,308.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><path d="M 141 324 L 168.76 324" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 174.76 324 L 166.76 328 L 168.76 324 L 166.76 320 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 297 385 L 334 400 L 297 415 L 260 400 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(282.5,393.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">c &gt; 0</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">c &gt; 0</text></switch></g><g transform="translate(260.5,350.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(192.5,377.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><path d="M 410 445 L 410 449.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 410 455.76 L 406 447.76 L 410 449.76 L 414 447.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 410 415 L 447 430 L 410 445 L 373 430 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(395.5,423.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">a || b</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">a || b</text></switch></g><path d="M 334 400 L 410 400 L 410 406.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 410 412.76 L 406 404.76 L 410 406.76 L 414 404.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 410 481 L 410 491 L 411 491 L 305.24 491" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 299.24 491 L 307.24 487 L 305.24 491 L 307.24 495 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 370 481 L 386 458 L 450 458 L 434 481 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(405.5,462.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="8" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 8px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">+</div></div></foreignObject><text x="4" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">+</text></switch></g><path d="M 257 461 L 273 441 L 337 441 L 321 461 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(294.5,444.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="4" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 5px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">-</div></div></foreignObject><text x="2" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">-</text></switch></g><path d="M 297 415 L 297 432.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 297 438.76 L 293 430.76 L 297 432.76 L 301 430.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(268.5,413.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><path d="M 373 430 L 357 430 L 357 482.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 357 488.76 L 353 480.76 L 357 482.76 L 361 480.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(417.5,441.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(342.5,414.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><rect x="122" y="601" width="204" height="43" fill="none" stroke="currentColor" stroke-width="2" pointer-events="none"/><g transform="translate(137.5,603.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="172" height="37" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 11px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 172px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><div style="font-size: 11px">x = 1</div>f_x = a * x * x + b * x + c<div style="font-size: 11px">f_minus_x = a * -x * -x + b * -x + c<br style="font-size: 11px" /></div></div></div></foreignObject><text x="86" y="24" fill="currentColor" text-anchor="middle" font-size="11px" font-family="Helvetica" font-weight="bold">[Not supported by viewer]</text></switch></g><path d="M 175 586 L 195 556 L 275 556 L 255 586 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(219.5,564.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="10" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 12px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">\n</div></div></foreignObject><text x="5" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">\n</text></switch></g><path d="M 225 381 L 225 547.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 553.76 L 221 545.76 L 225 547.76 L 229 545.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 225 586 L 224 586 L 224 592.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 224 598.76 L 220 590.76 L 224 592.76 L 228 590.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 223.5 658 L 291 682.5 L 223.5 707 L 156 682.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(174.5,675.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="97" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 99px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">f_x == f_minus_x</div></div></foreignObject><text x="49" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">f_x == f_minus_x</text></switch></g><path d="M 224 644 L 223.86 649.77" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 223.72 655.76 L 219.91 647.67 L 223.86 649.77 L 227.91 647.86 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 15 733 L 45.4 703 L 167 703 L 136.6 733 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(43.5,711.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="94" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 96px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">Function is even</div></div></foreignObject><text x="47" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">Function is even</text></switch></g><path d="M 156 682.67 L 91 682.67 L 91 694.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 91 700.76 L 87 692.76 L 91 694.76 L 95 692.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 358.67 752 L 358.67 762.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 358.67 768.76 L 354.67 760.76 L 358.67 762.76 L 362.67 760.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 358.5 703 L 437 727.5 L 358.5 752 L 280 727.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(307.5,720.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="101" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 103px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">f_minus_x == -f_x</div></div></foreignObject><text x="51" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">f_minus_x == -f_x</text></switch></g><path d="M 291 682.67 L 358.67 682.67 L 358.67 694.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 358.67 700.76 L 354.67 692.76 L 358.67 694.76 L 362.67 692.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 191.67 780 L 191.67 802.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 191.67 808.76 L 187.67 800.76 L 191.67 802.76 L 195.67 800.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 103.5 780 L 138.7 750 L 279.5 750 L 244.3 780 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(136.5,751.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="108" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 108px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">Function is neither<div>even nor odd</div></div></div></foreignObject><text x="54" y="19" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">Function is neither&lt;div&gt;even nor odd&lt;/div&gt;</text></switch></g><path d="M 276 801 L 306.4 771 L 428 771 L 397.6 801 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(306.5,779.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="90" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 90px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">Function is odd</div></div></foreignObject><text x="45" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">Function is odd</text></switch></g><path d="M 280 727.67 L 191.67 727.67 L 191.67 741.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 191.67 747.76 L 187.67 739.76 L 191.67 741.76 L 195.67 739.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(131.5,666.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(289.5,666.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><g transform="translate(261.5,711.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><g transform="translate(369.5,753.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><path d="M 271.5 830.14 L 308.5 845.14 L 271.5 860.14 L 234.5 845.14 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(267.5,838.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="6" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 8px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">a</div></div></foreignObject><text x="3" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">a</text></switch></g><path d="M 91 733 L 91 811 L 271.67 811 L 271.67 821.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 271.67 827.76 L 267.67 819.76 L 271.67 821.76 L 275.67 819.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 352 801 L 352 811 L 271.67 811 L 271.67 821.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 271.67 827.76 L 267.67 819.76 L 271.67 821.76 L 275.67 819.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><rect x="103.5" y="866" width="120" height="30" fill="none" stroke="currentColor" stroke-width="2" pointer-events="none"/><g transform="translate(116.5,867.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="92" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 92px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">vx = -b / (2.0 * a)<div>vy = f(xv)</div></div></div></foreignObject><text x="46" y="19" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">[Not supported by viewer]</text></switch></g><path d="M 262 366.33 L 262 365 L 299.67 365 L 299.67 376.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 299.67 382.76 L 295.67 374.76 L 299.67 376.76 L 303.67 374.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 297 461 L 297 492.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 297 498.76 L 293 490.76 L 297 492.76 L 301 490.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 297 531 L 297 541 L 235.24 541" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 229.24 541 L 237.24 537 L 235.24 541 L 237.24 545 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 234.67 845 L 163.67 845 L 163.67 857.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 163.67 863.76 L 159.67 855.76 L 163.67 857.76 L 167.67 855.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 81.5 941 L 114.3 911 L 245.5 911 L 212.7 941 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(110.5,919.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="104" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 106px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">Vertex (vx, vy) is a</div></div></foreignObject><text x="52" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">Vertex (vx, vy) is a</text></switch></g><path d="M 163.5 958.14 L 200.5 973.14 L 163.5 988.14 L 126.5 973.14 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(148.5,966.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">a &gt; 0</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">a &gt; 0</text></switch></g><path d="M 163.67 896 L 163.67 902.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 163.67 908.76 L 159.67 900.76 L 163.67 902.76 L 167.67 900.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 163.67 941 L 163.67 949.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 163.67 955.76 L 159.67 947.76 L 163.67 949.76 L 167.67 947.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 0.5 1023 L 30.9 993 L 152.5 993 L 122.1 1023 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(48.5,1001.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="54" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 54px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">minimum</div></div></foreignObject><text x="27" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">minimum</text></switch></g><path d="M 126.67 973 L 76.67 973 L 76.67 984.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 76.67 990.76 L 72.67 982.76 L 76.67 984.76 L 80.67 982.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 175.5 1023 L 205.9 993 L 327.5 993 L 297.1 1023 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(222.5,1001.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="56" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 58px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">maximum</div></div></foreignObject><text x="28" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">maximum</text></switch></g><path d="M 200.67 973 L 251.67 973 L 251.67 984.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 251.67 990.76 L 247.67 982.76 L 251.67 984.76 L 255.67 982.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(104.5,959.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(200.5,959.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g><rect x="170" y="1070.76" width="110" height="20" rx="10" ry="10" fill="none" stroke="currentColor" stroke-width="2" pointer-events="none"/><g transform="translate(206.5,1074.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="36" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 36px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">Конец</div></div></foreignObject><text x="18" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">Конец</text></switch></g><path d="M 76.67 1023 L 76.67 1041 L 227 1041 L 227 1062.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227 1068.76 L 223 1060.76 L 227 1062.76 L 231 1060.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 308.67 845 L 337 845 L 337 1041 L 227.67 1041 L 227.67 1062.76" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 227.67 1068.76 L 223.67 1060.76 L 227.67 1062.76 L 231.67 1060.76 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 251.67 1023 L 251.67 1032.43" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 251.67 1038.43 L 247.67 1030.43 L 251.67 1032.43 L 255.67 1030.43 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(280.5,101.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(209.5,828.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="22" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 24px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">true</div></div></foreignObject><text x="11" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">true</text></switch></g><g transform="translate(315.5,828.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="28" height="12" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 28px; white-space: nowrap; overflow-wrap: normal; font-weight: bold; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">false</div></div></foreignObject><text x="14" y="12" fill="currentColor" text-anchor="middle" font-size="12px" font-family="Helvetica" font-weight="bold">false</text></switch></g></g></svg>
+
+</div>
+
+<h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Вывести сумму цифр числа <code>a</code> если она больше <code>b</code>, если равна <code>b</code> - сообщение <code>Сумма цифр = b</code>, и значение суммы, увеличенное на <code>b</code>, если сумма меньше <code>b</code>.</li>
+<li>Вывести значение наибольшего из трёх параметров <code>x</code>, <code>y</code>, <code>z</code> если оно больше суммы двух других параметров, и разность этой суммы и наибольшего значения иначе.</li>
+<li>Вывести значение наименьшего из трёх параметров <code>a</code>, <code>b</code>, <code>c</code> если оно меньше или равно <code>x</code> и кратно 7, и частное наименьшего параметра и суммы двух оставшихся иначе.</li>
+<li>Вывести номер и долю в процентах наибольшего из параметров <code>a1</code>, <code>a2</code>, <code>a3</code> в случае его чётности, и номера и разность значений наибольшего и наименьшего из параметров иначе.</li>
+<li>Вывести частное суммы параметров <code>a</code>, <code>b</code> и параметра <code>x</code>, если сумма меньше <code>x</code>, и обратное частное, если сумма больше. В случае равенства вывести частное <code>b</code> и <code>x</code>. Точность – 3 знака после запятой.</li>
+<li>Вывести номер наименьшего параметра <code>b1</code>, <code>b2</code>, <code>b3</code>, в случае, если его значение нечётно, и частное номера и значения этого параметра иначе. Количество цифр после запятой равно номеру параметра.</li>
+<li>Вывести частное наименьшей суммы цифр параметров <code>a</code>, <code>b</code> и второго параметра.</li>
+<li>Вывести разность наибольшего из параметров <code>c1</code>, <code>c2</code>, <code>c3</code> и суммы номеров оставшихся параметров, в случае если этот параметр кратен 3, и частное этой суммы и наибольшего из параметров иначе.</li>
+<li>Вывести частное произведения параметров <code>a</code>, <code>b</code> и параметра <code>x</code>, если произведение меньше <code>x</code>, и разность иначе. В случае равенства вывести соответствующее сообщение.</li>
+<li>Вывести разность наибольшего и наименьшего из параметров <code>d1</code>, <code>d2</code>, <code>d3</code> в случае, если номер наибольшего нечётный, и частное наименьшего и наибольшего иначе.</li>
+<li>В зависимости от того, что больше, вывести разность наибольшего из параметров <code>a</code>, <code>b</code> и параметра <code>x</code>, либо сумму наименьшего из параметров и параметра <code>x</code>. В случае равенства вывести соответствующее сообщение.</li>
+<li>Вывести частное номера наименьшего параметра <code>e1</code>, <code>e2</code>, <code>e3</code> и суммы параметров, если сумма больше нуля и обратное частное иначе.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №2</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab02/</guid>
+      <description>Алгебраические вычисления</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<ol>
+<li>Изучите математические функции, содержащиеся в заголовочном файле <code>math.h</code>.</li>
+<li>Найдите отрезок, на котором функции из вашего варианта определены.</li>
+<li>Напишите программу, решающую задачу по номеру своего варианта.</li>
+</ol>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Значение \(x\) вводить с клавиатуры. Обработать ввод с клавиатуры таким образом, чтобы расчёт вёлся только для допустимых значений вводимых параметров. Программа должна содержать единственный оператор <code>if</code>.</p>
+<h3 id="указания-по-выполнению-работы">Указания по выполнению работы</h3>
+<p>Для использования математических функций в программу необходимо включить заголовочный файл <code>&lt;math.h&gt;</code>, содержащий прототипы математических функций и макроопределения констант. Кроме того, при компиляции программы нужно указать ключ <code>-lm</code> для подключения соответствующей библиотеки. Если вы используете CLion, то нужно добавить строку <code>link_libraries(m)</code> в файл <code>CMakeLists.txt</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Математическая функция</th>
+<th style="text-align:center">Функция в C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\( \sin x \)</td>
+<td style="text-align:center"><code>sin(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \cos x \)</td>
+<td style="text-align:center"><code>cos(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \tg x \)</td>
+<td style="text-align:center"><code>tan(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \arcsin x \)</td>
+<td style="text-align:center"><code>asin(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \arccos x \)</td>
+<td style="text-align:center"><code>acos(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \arctg x \)</td>
+<td style="text-align:center"><code>atan(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \ln x \)</td>
+<td style="text-align:center"><code>log(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \lg x \)</td>
+<td style="text-align:center"><code>log10(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( |x| \)</td>
+<td style="text-align:center"><code>fabs(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \sqrt x \)</td>
+<td style="text-align:center"><code>sqrt(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( x^y \)</td>
+<td style="text-align:center"><code>pow(x, y)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( e^x \)</td>
+<td style="text-align:center"><code>exp(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\( \operatorname{sgn} x \)</td>
+<td style="text-align:center">отсутствует</td>
+</tr>
+</tbody>
+</table>
+<h3 id="пример">Пример</h3>
+<p>Вычислить \(y = x \sqrt{1 + x^2} + \arcsin x, z = e^y \sqrt{1 + e^{2y}} \)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Enter x { -1.0 &lt;= x &lt;= 1.0 } -&gt; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">sqrt</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">asin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">double</span> <span class="n">z</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">y</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;y(x) = %lf</span><span class="se">\n</span><span class="s">z(y) = %lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;x value is incorrect!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="результаты-работы-программы">Результаты работы программы</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Enter x { -1.0 &lt;= x &lt;= 1.0 } -&gt; 0.23
+</span></span><span class="line"><span class="cl">y(x) = 0.468083
+</span></span><span class="line"><span class="cl">z(y) = 3.008924
+</span></span></code></pre></div><h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>\( y = \ln \frac{1+x}{1-x}, z = \frac{y^2}{1+y}. \)</li>
+<li>\( y = \arccos (2\sin x), z = \sqrt{\cos y^2}. \)</li>
+<li>\( y = \frac{2^x + 2^{-x}}{2}, z = \sqrt{2 + y - y^2}. \)</li>
+<li>\( y = \ctg \pi x + \arccos(2^x), z = \operatorname{sgn} y. \)</li>
+<li>\( y = \sqrt{\sin 2x} + \sqrt{\sin 2x}, z = \sqrt[4]{\ln \tg (y - \frac{\pi}{8})}. \)</li>
+<li>\( y = 5\sqrt{\sin \sqrt{x}}, z = \lg \cos \ln y. \)</li>
+<li>\( y = (x - 2)\sqrt{\frac{1+x}{1-x}}, z = \ln (y^2 - 1). \)</li>
+<li>\( y = -\ln(x+2) - \ln(x-2), z = \sqrt{3y - y^3}. \)</li>
+<li>\( y = \arccos \frac{2x}{1+x^2}, z = \ln \sin \frac{\pi}{y}. \)</li>
+<li>\( y = \frac{\sqrt{x}}{\sin \pi x}, z = \operatorname{sgn} y. \)</li>
+<li>\( y = \arcsin(4-x) + \ln \ln x, z = \arccos \frac{2y}{1+y}. \)</li>
+<li>\( y = \arcsin \lg x, z = (y + |y|) \sqrt{y \sin^2 \pi y}. \)</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №3</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab03/</guid>
+      <description>Циклические алгоритмы</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<ol>
+<li>Написать программу, используя оператор цикла <code>while</code> (нечётные варианты) или <code>do while</code> (чётные варианты).</li>
+<li>Написать программу, используя оператор цикла <code>for</code>.</li>
+<li>Составить блок-схемы.</li>
+</ol>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Программа должна выводить на экран таблицу вида:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">   x          f(x)
+</span></span><span class="line"><span class="cl">--------------------
+</span></span><span class="line"><span class="cl">0.000000    0.123456
+</span></span><span class="line"><span class="cl">0.100000    1.234567
+</span></span><span class="line"><span class="cl">0.200000    2.345678
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">1.000000    3.456789
+</span></span></code></pre></div><p>Шаг \( h \) изменения аргумента \( x \) необходимо ввести с клавиатуры.</p>
+<h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>\( f(x) = \begin{cases} \cos(x+x^3), &amp; 0 \le x \le 1; \\  e^{-x^2} - x^2 + 2x, &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} e^{\sin x}, &amp; 0 \le x \le \frac{1}{4}; \\  e^x - \frac{1}{\sqrt{x}}, &amp; \frac{1}{4} \lt x \le \frac{1}{2}.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} \cos(x)e^{-x^2}, &amp; 0 \le x \le 1; \\  \ln(x+1) - \sqrt{4-x^2}, &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} \sqrt{x+1} - \sqrt{x} - \frac{1}{2}, &amp; 0 \le x \le 1; \\  e^{-x-\frac{1}{x}}, &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} 2^x - 2 + x^2, &amp; 0 \le x \le 1.5; \\  \sqrt{x}e^{-x^2}, &amp; 1.5 \lt x \le 3.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} 8x^3 \cos x, &amp; 0 \le x \le 1; \\  \ln (1 + \sqrt{x}) - \cos x, &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} e^{-2\sin x}, &amp; -1 \le x \le 1; \\ x^2 - \ctg x, &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} \frac{1}{1+25x^2}, &amp; 0 \le x \le 0,6; \\  (x + 2x^4) \sin x^2, &amp; 0.6 \lt x \le 1.6.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} (x^2 - 2x^3) \cos x^2, &amp; -1.5 \le x \le 0; \\ e^{\sin 2x}, &amp; 0 \lt x \le 1.5.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} -\cos e^x, &amp; 0 \le x \le 1; \\ \ln (2x + \sin x^2), &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} x^2 \arctg x, &amp; 0 \le x \le 1; \\ \sin \frac{1}{x^2}, &amp; 1 \lt x \le 2.  \end{cases} \)</li>
+<li>\( f(x) = \begin{cases} x^2 \sin (\sqrt[3]{x} - 3), &amp; -2 \le x \le 0; \\ \sqrt{x} \cos 2x, &amp; 0 \lt x \le 1.  \end{cases} \)</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №4</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab04/</guid>
+      <description>Вложенные циклы</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<ol>
+<li>Изучить тоеретическую справку по методу средних прямоугольников и правилу Рунге.</li>
+<li>Используя свой вариант и наработки по лабораторной работе №3, напишите программу для расчёта приближённого значения интеграла \( I = \int_a^b f(x) dx \) по формуле средних прямоугольников с заданной точностью по правилу Рунге.</li>
+</ol>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Требуемую точность вводить с клавиатуры. Значение, рассчитанное программой, должно приближаться к контрольному значению.</p>
+<h3 id="теоретическая-справка">Теоретическая справка</h3>
+<h4 id="метод-средних-прямоугольников">Метод средних прямоугольников</h4>
+<p>В случаях, когда при вычислении интерграла \( I = \int_a^b f(x) dx \) невозможно найти или очень сложно вычислить первообразную, обращаются к численному интегрированию. Рассмотрим на примере метода средних прямоугольников, в котором площадь подынтегральной трапеции заменяется площадью совокупности прямоугольников.</p>
+<p>Метод средних прямоугольников без разбиений отрезка интегрирования и с разбиением на 4 части:
+
+<div style="text-align:center;">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="698px" height="318px" version="1.1" content="&lt;mxfile userAgent=&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Atom/1.60.0 Chrome/83.0.4103.122 Electron/9.4.4 Safari/537.36&quot; version=&quot;9.1.0&quot; editor=&quot;www.draw.io&quot;&gt;&lt;diagram&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;"><defs/><g transform="translate(0.5,0.5)"><rect x="564.83" y="101.93" width="51.45" height="153.75" fill="none" stroke="currentColor" stroke-width="3" pointer-events="none"/><path d="M 43.54 255.62 L 331.5 255.62" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 338.25 255.62 L 329.25 260.12 L 331.5 255.62 L 329.25 251.12 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 43.54 255.62 L 43.75 17.75" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 43.76 11 L 48.25 20 L 43.75 17.75 L 39.25 20 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><rect x="79.27" y="60.59" width="203.64" height="195.09" fill="none" stroke="currentColor" stroke-width="3" pointer-events="none"/><g transform="translate(333.5,258.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="9" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 10px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">x</font></div></div></foreignObject><text x="5" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(25.5,13.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="9" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 10px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><span style="font-size: 18px">y</span></div></div></foreignObject><text x="5" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 376.9 255.62 L 664.87 255.62" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 671.62 255.62 L 662.62 260.12 L 664.87 255.62 L 662.62 251.12 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 376.9 255.62 L 377.12 17.75" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 377.12 11 L 381.62 20 L 377.12 17.75 L 372.62 20 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><rect x="412.64" y="94.68" width="50.01" height="161.01" fill="none" stroke="currentColor" stroke-width="3" pointer-events="none"/><rect x="461.92" y="63.49" width="51.45" height="192.19" fill="none" stroke="currentColor" stroke-width="3" pointer-events="none"/><rect x="513.37" y="65.67" width="51.45" height="190.02" fill="none" stroke="currentColor" stroke-width="3" pointer-events="none"/><g transform="translate(664.5,256.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="9" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 10px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">x</font></div></div></foreignObject><text x="5" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(631.5,125.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 27px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">f(x)</font></div></div></foreignObject><text x="13" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(359.5,13.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="9" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 10px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><span style="font-size: 18px">y</span></div></div></foreignObject><text x="5" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(384.5,260.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="47" height="23" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 49px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">a = x<sub>0</sub></font></div></div></foreignObject><text x="24" y="21" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 412.67 262.48 L 412.67 262.48 Q 412.67 262.48 412.67 255.62 L 412.67 248.76" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 616.08 262.48 L 616.08 262.48 Q 616.08 262.48 616.08 255.62 L 616.08 248.76" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(602.5,265.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="48" height="23" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 48px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">b = x<sub>4</sub></font></div></div></foreignObject><text x="24" y="21" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 360.02 201.63 Q 496.98 -54 630.33 153.42" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(73.5,259.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="10" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 12px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">a</font></div></div></foreignObject><text x="5" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 79.3 262.48 L 79.3 262.48 Q 79.3 262.48 79.3 255.62 L 79.3 248.76" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 282.71 262.48 L 282.71 262.48 Q 282.71 262.48 282.71 255.62 L 282.71 248.76" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(277.5,259.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="10" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 12px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">b</font></div></div></foreignObject><text x="5" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 28.55 201.63 Q 165.51 -54 298.86 153.42" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 417.11 210.74 L 458.53 210.97" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 422.89 208.11 L 414.87 210.73 L 422.86 213.44" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 452.75 213.61 L 460.76 210.99 L 452.78 208.28" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 179.28 254.23 L 179.07 60.59" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9" pointer-events="none"/><g transform="translate(160.5,270.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="41" height="40" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 41px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><u style="font-size: 18px"><font style="font-size: 18px">a + b</font></u><div style="font-size: 18px"><font style="font-size: 18px">2</font></div></div></div></foreignObject><text x="21" y="29" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 458.17 124.41 L 442.47 124.41" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 452.41 127.08 L 460.41 124.41 L 452.41 121.75" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><path d="M 448.24 121.75 L 440.24 124.41 L 448.24 127.08" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(420.5,217.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="11" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 11px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">h</font></div></div></foreignObject><text x="6" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(444.5,130.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="11" height="40" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 11px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px"><u style="font-size: 18px">h</u></font><div style="font-size: 18px"><font style="font-size: 18px">2</font></div></div></div></foreignObject><text x="6" y="29" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(452.5,259.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="17" height="23" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 19px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">x<sub>1</sub></font></div></div></foreignObject><text x="9" y="21" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(504.5,260.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="17" height="23" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 19px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">x<sub>2</sub></font></div></div></foreignObject><text x="9" y="21" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><g transform="translate(555.5,260.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="17" height="23" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 19px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">x<sub>3</sub></font></div></div></foreignObject><text x="9" y="21" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 461.95 262.48 L 461.95 262.48 Q 461.95 262.48 461.95 255.62 L 461.95 248.76" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 513.41 263.2 L 513.41 263.2 Q 513.41 263.2 513.41 256.34 L 513.41 249.48" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 564.86 263.2 L 564.86 263.2 Q 564.86 263.2 564.86 256.34 L 564.86 249.48" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 179.31 263.93 L 179.31 263.93 L 179.31 250.21" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" pointer-events="none"/><path d="M 488.01 65.67 L 487.67 255.67" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9" pointer-events="none"/><path d="M 539 255.67 L 538.74 65.67" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9" pointer-events="none"/><path d="M 590.67 255.67 L 590.19 101.93" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9" pointer-events="none"/><g transform="translate(297.5,124.5)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="26" height="19" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 18px; font-family: Helvetica; color: currentColor; line-height: 1.2; vertical-align: top; width: 27px; white-space: nowrap; overflow-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;"><font style="font-size: 18px">f(x)</font></div></div></foreignObject><text x="13" y="19" fill="currentColor" text-anchor="middle" font-size="18px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 437.67 255.67 L 437.28 94.68" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="9 9" pointer-events="none"/><ellipse cx="179" cy="61" rx="5" ry="5" fill="currentColor" stroke="none" pointer-events="none"/><ellipse cx="437" cy="95" rx="5" ry="5" fill="currentColor" stroke="none" pointer-events="none"/><ellipse cx="488" cy="64" rx="5" ry="5" fill="currentColor" stroke="none" pointer-events="none"/><ellipse cx="539" cy="66" rx="5" ry="5" fill="currentColor" stroke="none" pointer-events="none"/><ellipse cx="590" cy="102" rx="5" ry="5" fill="currentColor" stroke="none" pointer-events="none"/></g></svg>
+
+</div>
+</p>
+<p>Без разбиений интеграл \( I \) можно найти в виде площади прямоугольника с шириной, равной длине интервала интегрирования \( [a, b] \) и высотой, равной значению \( f(x) \) в середине этого интервала:</p>
+<p>$$ \int_a^b f(x) dx \approx (b-a) f \Big( \frac{a+b}{2} \Big). $$</p>
+<p>Введём равномерную сетку \( x_i = a + ih, i = 0,1, &hellip;, n \), где \( h = \frac{b-a}{n} \) - шаг сетки. Тогда интеграл \( I \) найдём как сумму площадей прямоугольников шириной \( h \) и высотой, равной значению \( f(x) \) в средней точке каждого прямоугольника:</p>
+<p>$$ \int_a^b f(x) dx \approx h \sum_{i=0}^{n-1} f \Big( x_i + \frac{h}{2} \Big). $$</p>
+<h4 id="правило-рунге">Правило Рунге</h4>
+<p>Правило Рунге служит для оценки погрешности численных методов. Сформулируем это правило для метода средних прямоугольников. Для поиска интеграла с заданной точностью \( ε \):</p>
+<ol>
+<li>Найти интеграл с числом шагов, равным \( n \).</li>
+<li>Найти интеграл с числом шагов, равным \( 2n \).</li>
+<li>Вычислить величину \( \Delta_{2n} = \frac{I_{2n} - I_n}{3} \).</li>
+<li>Если \( \Delta_{2n} \lt ε \) - закончить. Иначе - принять \( n = 2n \) и перейти к шагу 2.</li>
+</ol>
+<h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>\( f(x) = \begin{cases} \cos(x+x^3), &amp; 0 \le x \le 1; \\  e^{-x^2} - x^2 + 2x, &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 1,43537.</li>
+<li>\( f(x) = \begin{cases} e^{\sin x}, &amp; 0 \le x \le \frac{1}{4}; \\  e^x - \frac{1}{\sqrt{x}}, &amp; \frac{1}{4} \lt x \le \frac{1}{2}.  \end{cases} \)<br>
+Контрольное значение интеграла: 0,23431.</li>
+<li>\( f(x) = \begin{cases} \cos(x)e^{-x^2}, &amp; 0 \le x \le 1; \\  \ln(x+1) - \sqrt{4-x^2}, &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 0,33735.</li>
+<li>\( f(x) = \begin{cases} \sqrt{x+1} - \sqrt{x} - \frac{1}{2}, &amp; 0 \le x \le 1; \\  e^{-x-\frac{1}{x}}, &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 0,16514.</li>
+<li>\( f(x) = \begin{cases} 2^x - 2 + x^2, &amp; 0 \le x \le \frac{\pi}{2}; \\  \sqrt{x}e^{-x^2}, &amp; \frac{\pi}{2} \lt x \le \pi.  \end{cases} \)<br>
+Контрольное значение интеграла: 1,02481.</li>
+<li>\( f(x) = \begin{cases} 8x^3 \cos x, &amp; 0 \le x \le 1; \\  \ln (1 + \sqrt{x}) - \cos x, &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 2,10167.</li>
+<li>\( f(x) = \begin{cases} e^{-2\sin x}, &amp; -1 \le x \le 1; \\ x^2 - \ctg x, &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 5,52399.</li>
+<li>\( f(x) = \begin{cases} \frac{1}{1+25x^2}, &amp; 0 \le x \le 0,6; \\  (x + 2x^4) \sin x^2, &amp; 0.6 \lt x \le 1.6.  \end{cases} \)<br>
+Контрольное значение интеграла: 4,60078.</li>
+<li>\( f(x) = \begin{cases} (x^2 - 2x^3) \cos x^2, &amp; -\frac{\pi}{2} \le x \le 0; \\ e^{\sin 2x}, &amp; 0 \lt x \le \frac{\pi}{2}.  \end{cases} \)<br>
+Контрольное значение интеграла: 2,93972.</li>
+<li>\( f(x) = \begin{cases} -\cos e^x, &amp; 0 \le x \le 1; \\ \ln (2x + \sin x^2), &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 1,37207.</li>
+<li>\( f(x) = \begin{cases} x^2 \arctg x, &amp; 0 \le x \le 1; \\ \sin \frac{1}{x^2}, &amp; 1 \lt x \le 2.  \end{cases} \)<br>
+Контрольное значение интеграла: 0,67927.</li>
+<li>\( f(x) = \begin{cases} x^2 \sin (\sqrt[3]{x} - 3), &amp; -2 \le x \le 0; \\ \sqrt{x} \cos 2x, &amp; 0 \lt x \le 1.  \end{cases} \)<br>
+Контрольное значение интеграла: 2,42417.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №5</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab05/</guid>
+      <description>Рекурсия</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Напишите программу, решающую Вашу задачу двумя способами: с помощью цикла и с помощью рекурсии.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>В программе, помимо <code>main()</code>, должны присутствовать две функции - рекурсивная и с циклом (циклами). Результаты их работы должны совпадать. Использовать глобальные переменные запрещено.</p>
+<h3 id="пример">Пример</h3>
+<p>Написать программу, вычисляющую факториал числа <code>n</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">fr</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">n</span> <span class="o">?</span> <span class="n">fr</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1u</span><span class="p">)</span> <span class="o">*</span> <span class="nl">n</span> <span class="p">:</span> <span class="mi">1u</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">fl</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1u</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">2u</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Factorial of n</span><span class="se">\n</span><span class="s">n -&gt; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%u&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Cycle: n! = %u</span><span class="se">\n</span><span class="s">Recursion: n! = %u</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">fl</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">fr</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="результаты-работы-программы">Результаты работы программы</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Factorial of n
+</span></span><span class="line"><span class="cl">n -&gt; 8
+</span></span><span class="line"><span class="cl">Cycle: n! = 40320
+</span></span><span class="line"><span class="cl">Recursion: n! = 40320
+</span></span></code></pre></div><h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Найти n-ое число последовательности Фибоначчи.</li>
+<li>Вывести на экран десятичное целое неотрицательное число, используя только <code>printf(&quot;%u&quot;, x)</code>, где <code>x</code> может принимать значения от 0 до 9 (вывод одноразрядного числа).</li>
+<li>Определить, является ли заданное натуральное число простым.</li>
+<li>Найти количество цифр заданного неотрицательного целого числа.</li>
+<li>Возвести число в целую положительную степень.</li>
+<li>Найти среднее арифметическое суммы цифр целого неотрицательного числа.</li>
+<li>Найти наибольший общий делитель (НОД) двух натуральных чисел. НОД двух чисел - наибольшее число, на которое оба эти числа делятся без остатка.</li>
+<li>Записать заданное неотрицательное целое число наоборот.</li>
+<li>Найти наименьшее общее кратное (НОК) двух натуральных чисел. НОК двух чисел - наименьшее число, которое делится без остатка на оба эти числа.</li>
+<li>Написать функцию умножения двух чисел, используя только сложение.</li>
+<li>Определить, является ли число точной степенью двойки.</li>
+<li>Написать функцию сложения двух чисел, используя только прибавление единицы.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №6</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab06/</guid>
+      <description>Одномерные массивы</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Напишите программу, решающую задачу по номеру своего варианта.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Количество элементов массива вводить с клавиатуры, массив заполнить случайными числами. Необходимые расчёты и модификации реализовать в виде функций.</p>
+<h3 id="пример">Пример</h3>
+<p>Заполнить массив случайными числами в диапазоне \([-50, 50]\).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">fill</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">a</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span> <span class="p">()</span> <span class="o">%</span> <span class="mi">101</span> <span class="o">-</span> <span class="mi">50</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;n -&gt; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fill</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%4d&#34;</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="результаты-работы-программы">Результаты работы программы</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">n -&gt; 5
+</span></span><span class="line"><span class="cl">21 -32 27 -22 29
+</span></span></code></pre></div><h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Найти сумму индексов максимального и минимального элемента массива, если она меньше/больше по модулю минимума/максимума соответственно, записать её на их место, иначе обнулить массив между минимум и максимумом.</li>
+<li>Максимально эффективно по используемой памяти записать отрицательные и положительные элементы массива в массивы <code>P</code> и <code>N</code> соответственно.</li>
+<li>Найти три максимума в массиве и записать разность их произведения и суммы по индексу суммы их индексов по модулю <code>n</code>, где <code>n</code> - количество элементов массива.</li>
+<li>Максимально эффективно по используемой памяти сформировать массив из элементов, встречающихся в обоих массивах <code>A</code> и <code>B</code>.</li>
+<li>Вычислить сумму и произведение элементов между двумя повторяющимися элементами массива и записать вычисленные значения вместо повторяющихся.</li>
+<li>Найти простые элементы массива натуральных чисел. Вывести на экран, если такой элемент один, поменять местами, если их два, иначе - вывести их индексы.</li>
+<li>Найти в массиве первое вхождение искомого элемента, а все элементы в частях массива до и после него “перевернуть”, то есть поменять порядок их следования на обратный. Если такого элемента нет, “перевернуть” весь массив.</li>
+<li>Найти два подряд идущих элемента в массиве целых чисел, сумма которых максимальна и прибавить эту сумму к двум минимумам этого массива.</li>
+<li>Найти два взаимно простых числа в массиве натуральных чисел, вывести на экран и поменять меньшее из них местами с максимумом, а большее - с минимумом. Если таких чисел нет, обнулить минимум и максимум.</li>
+<li>Максимально эффективно по используемой памяти сформировать массив из элементов, не встречающихся в массивах <code>A</code> и <code>B</code> одновременно. Диапазон возможных значений элементов \([-19, 20]\).</li>
+<li>Обменивать местами два случайных элемента массива, пока все его элементы не будут стоять в порядке возрастания. Вывести количество обменов и итоговый массив. Диапазон возможных значений элементов \([-9, 9]\).</li>
+<li>Произвести поиск элементов в массиве, которые сильно отклоняются от среднего значения и внести поправку с результатом ниже среднего, если элемент стоит на нечётном месте, и выше среднего, если на чётном. Величину отклонения вводить с клавиатуры.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №7</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab07/</guid>
+      <description>Двухмерные массивы</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Напишите программу, решающую задачу по номеру своего варианта.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Размеры массива вводить с клавиатуры, массив заполнить случайными числами. Необходимые расчёты и модификации реализовать в виде функций.</p>
+<h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Посчитать среднее значение строки и вывести на экран справа от матрицы и среднее значение столбца, вывести снизу от матрицы.</li>
+<li>Найти минимум среди максимумов столбцов матрицы.</li>
+<li>Найти частное следа квадратной матрицы и суммы скалярных произведений соответствующих столбцов и строк этой матрицы.</li>
+<li>Найти строки и столбцы с наименьшей и наибольшей суммой элементов.</li>
+<li>Найти произведение \(A^TA\) матрицы \(A\) размера \(n \times m\).</li>
+<li>Найти норму Фробениуса матрицы \(A\) размера \(n \times m\):
+$$ \lVert A \rVert_F = \sqrt{\sum_{i=1}^{n} \sum_{j=1}^{m} |a_{ij}|^2} $$</li>
+<li>Транспонировать матрицу, если сумма элементов главной диагонали и двух соседних больше заданного числа, и обнулить остальные элементы иначе.</li>
+<li>Изменить порядок строк в матрице таким образом, чтобы элементы первого столбца были расположены в порядке убывания.</li>
+<li>Преобразовать матрицу в симметричную, отразив тот треугольник матрицы, сумма элементов которого меньше.</li>
+<li>Найти максимальный по модулю элемент матрицы и разделить на него элементы главной и побочной диагоналей, а также двух соседних с ними.</li>
+<li>Найти произведение двух квадратных матриц.</li>
+<li>Обменять местами элементы главной и побочной диагоналей матрицы.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №8</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab08/</guid>
+      <description>Символы</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Напишите программу, решающую задачу по номеру своего варианта.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Массивы символов использовать запрещено.</p>
+<h3 id="указания-по-выполнению-работы">Указания по выполнению работы</h3>
+<p>Для использования символьных функций может понадобиться включить в программу заголовочный файл <code>&lt;ctype.h&gt;</code>. Ниже перечислены символьные функции, которые могут быть полезны при выполнении данной работы.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Функция</th>
+<th style="text-align:left">возвращает ненулевое значение, если c является &hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>isalnum(c)</code></td>
+<td style="text-align:left">буквой или цифрой</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isalpha(c)</code></td>
+<td style="text-align:left">буквой</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>iscntrl(c)</code></td>
+<td style="text-align:left">управляющим символом</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isdigit(c)</code></td>
+<td style="text-align:left">цифрой</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isgraph(c)</code></td>
+<td style="text-align:left">любым печатаемым символом, но не пробелом</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>islower(c)</code></td>
+<td style="text-align:left">строчной буквой</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isprint(c)</code></td>
+<td style="text-align:left">любым печатаемым символом, включая пробел</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ispunct(c)</code></td>
+<td style="text-align:left">знаком пунктуации</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isspace(c)</code></td>
+<td style="text-align:left">пробельным символом</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isupper(c)</code></td>
+<td style="text-align:left">заглавной буквой</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>isxdigit(c)</code></td>
+<td style="text-align:left">шестнадцатеричной цифрой</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Функция</th>
+<th style="text-align:left">возвращает &hellip; , если <code>c</code> является буквой</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>toupper(c)</code></td>
+<td style="text-align:left">заглавный эквивалент <code>c</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>tolower(c)</code></td>
+<td style="text-align:left">строчный эквивалент <code>c</code></td>
+</tr>
+</tbody>
+</table>
+<p>Если вы выполняете лабораторную работу в ОС семейства Windows - используйте пример из лекций. В ОС семейства Linux вместо функции getch() используйте функцию mygetch() из примера ниже:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;termios.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">mygetch</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">termios</span> <span class="n">oldt</span><span class="p">,</span> <span class="n">newt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tcgetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newt</span> <span class="o">=</span> <span class="n">oldt</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">newt</span><span class="p">.</span><span class="n">c_lflag</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="n">ICANON</span> <span class="o">|</span> <span class="n">ECHO</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tcsetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="n">TCSANOW</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">newt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tcsetattr</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span> <span class="n">TCSANOW</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">oldt</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">c</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="n">mygetch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Шифровать вводимую последовательность символов шифром Цезаря. Величину сдвига выберите самостоятельно, но предусмотрите возможность его быстрого изменения. Закончить ввод по нажатию <code>[Enter]</code>.</li>
+<li>Выводить на экран ”символ-среднее арифметическое“ вводимой последовательности символов вместо символа, вводимого с клавиатуры. Закончить ввод по нажатию <code>[F1]</code>.</li>
+<li>Определить, имеются ли во вводимой последовательности символов буквы и подсчитать их число. Закончить ввод по нажатию <code>[PageUp]</code>.</li>
+<li>Переставлять соседние символы во вводимой последовательности символов. Например: при вводе <code>Rise and Shine, Mr. Freeman.</code> вывести на экран <code>iResa dnS ihen ,rM .rFeeam.n</code>. Закончить ввод по нажатию <code>[PageDown]</code>.</li>
+<li>Определить, является ли вводимая последовательность символов верной записью вещественного числа. Закончить ввод по нажатию <code>[End]</code>.</li>
+<li>Заменять во вводимой последовательности символов каждую цифру следующей за ней по порядку цифрой, считая, что за <code>9</code> идёт <code>0</code>. Закончить ввод по нажатию <code>[Backspace]</code>.</li>
+<li>Выводить на экран вводимые символы, а для функциональных клавиш - их скан-коды. Закончить ввод по нажатию <code>[Delete]</code>.</li>
+<li>Выводить на экран вводимые символы, если они не являются алфвавитно цифровыми, выводить коды символов иначе. Закончить ввод по нажатию <code>[Insert]</code>.</li>
+<li>Шифровать вводимую последовательность символов шифром Атбаш. Закончить ввод по нажатию <code>[Home]</code>.</li>
+<li>Заменять во вводимой последовательности символов строчные буквы заглавными. Закончить ввод по нажатию <code>[F8]</code>.</li>
+<li>Подсчитать частоту заданной тройки символов во вводимой последовательности символов. Закончить ввод по нажатию <code>[Escape]</code>.</li>
+<li>Определить, имеются ли во вводимой последовательности символов цифры и подсчитать их число. Закончить ввод по нажатию <code>[F11]</code>.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №9</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab09/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab09/</guid>
+      <description>Строки</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Напишите программу, решающую задачу по номеру своего варианта.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Необходимые действия реализовать в виде функций.</p>
+<h3 id="указания-по-выполнению-работы">Указания по выполнению работы</h3>
+<p>Для использования строковых функций необходимо включить в программу заголовочный файл <code>&lt;string.h&gt;</code>. Ниже перечислены строковые функции, которые могут быть полезны при выполнении данной работы.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Прототип функции</th>
+<th style="text-align:left">Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>size_t strlen(const char *str)</code></td>
+<td style="text-align:left">возвращает длину <code>str</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strcat(char *str1, char *str2)</code></td>
+<td style="text-align:left">присоединяет к <code>str1</code> копию <code>str2</code> и завершает <code>str1</code> нулевым символом. Возвращает <code>str1</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strchr(char *str, int ch)</code></td>
+<td style="text-align:left">возвращает указатель на первое вхождение младшего байта <code>ch</code> в <code>str</code> или <code>NULL</code>, если символ не найден</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strrchr(char *str, int ch)</code></td>
+<td style="text-align:left">возвращает указатель на последнее вхождение младшего байта <code>ch</code> в <code>str</code> или <code>NULL</code>, если символ не найден</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strstr(char *str1, char *str2)</code></td>
+<td style="text-align:left">возвращает указатель на первое вхождение str2 в str1 или NULL, если вхождения нет</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>int strcmp(char *str1, char *str2)</code></td>
+<td style="text-align:left">сравнивает в лексикографическом порядке <code>str1</code> и <code>str2</code> и возвращает значение: меньше нуля, если <code>str1 &lt; str2</code>; нуль, если <code>str1 == str2</code>; больше нуля, если <code>str1 &gt; str2</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strcpy(char *str1, char *str2)</code></td>
+<td style="text-align:left">копирует содержимое <code>str2</code> в <code>str1</code> и возвращает <code>str1</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>size_t strspn(char *str1, char *str2)</code></td>
+<td style="text-align:left">возвращает индекс первого символа в <code>str1</code>, который не совпадает ни с одним из символов в <code>str2</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>size_t strсspn(char *str1, char *str2)</code></td>
+<td style="text-align:left">возвращает индекс первого символа в <code>str1</code>, который совпадает с любым из символов в <code>str2</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strpbrk(char *str1, char *str2)</code></td>
+<td style="text-align:left">возвращает указатель на первый символ в <code>str1</code>, который совпадает с любым символом в <code>str2</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>char *strtok(char *str1, char *str2)</code></td>
+<td style="text-align:left">позволяет разделить <code>str1</code> на лексемы, <code>str2</code> - разделители лексем</td>
+</tr>
+</tbody>
+</table>
+<p>Пример использования функции <code>strtok()</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;I’m going off the rails on a crazy train&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">delim</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;, &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">delim</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">((</span><span class="n">p</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">delim</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;|%s&#34;</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Результаты работы программы:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">I’m|going|off|the|rails|on|a|crazy|train
+</span></span></code></pre></div><h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Сформировать из исходной строки новую строку, удалив из неё все последовательности одинаковых символов, оставив число повторов и один символ. Например: при вводе <code>aaabcc</code> результат работы программы будет <code>3ab2c</code>.</li>
+<li>Обратить порядок букв в каждом слове исходной строки. Например: при вводе <code>exit light enter night</code> результат работы программы будет <code>tixe thgil retne thgin</code>.</li>
+<li>Вывести на экран строку, составленную из n-ой буквы каждого слова исходной строки, где <code>n</code> - номер слова.</li>
+<li>Выполнить частотный анализ введённой строки и удалить из неё слово (или слова, если их несколько) с максимальной суммой частот символов.</li>
+<li>Вывести на экран длиннейшую подстроку исходной строки, содержащую только уникальные символы. Например: при вводе <code>theskyisturningredreturntopower</code> результат работы программы будет <code>kyisturn</code>.</li>
+<li>Найти самое длинное слово-палиндром в строке.</li>
+<li>Определить, есть ли среди слов введённой строки целые числа и просуммировать их.</li>
+<li>Вывести на экран слова исходной строки, встречающиеся в ней только один раз. Например: при вводе <code>When hunter meets hunter this hunter eats hunter</code> результат работы программы будет <code>When meets this eats</code>.</li>
+<li>Разместить в новой строке слова исходной строки в порядке убывания их длины.</li>
+<li>Составить из исходной строки новую, удалив все слова наиболее часто встречающейся длины. Например: при вводе <code>Vicariously I live while the whole world</code> результат работы программы будет <code>Vicariously I live the</code>.</li>
+<li>Определить, есть ли среди слов введённой строки вещественные числа и найти среднее.</li>
+<li>Удалить из слов исходной строки все повторные вхождения n-го символа, где <code>n</code> - номер слова.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №10</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab10/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab10/</guid>
+      <description>Динамическое выделение памяти</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Переписать код своего варианта лабораторной работы No7 под использование динамической области памяти для хранения массивов.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Для нечётных вариантов используйте I способ работы с массивами, для чётных - II способ.</p>
+<h3 id="указания-по-выполнению-работы">Указания по выполнению работы</h3>
+<p><strong>I способ</strong> размещения двухмерных массивов в памяти заключается в линеаризации или развёртке двухмерного массива в одномерный:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">fail</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Memory allocation failure!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fail</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">free</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span></span></code></pre></div><p><strong>II способ</strong> требует использования двухуровневых указателей:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">**</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fail</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fail</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="n">free</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №11</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab11/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab11/</guid>
+      <description>Структуры</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Написать программу, реализующую считывание данных с клавиатуры, их обработку и вывод на экран результатов запроса согласно вашему варианту.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Предусмотреть возможноть просмотра всего списка, добавления и удаления записей. Необходимые операции с записями реализовать в виде отдельных функций.</p>
+<h3 id="варианты-заданий">Варианты заданий</h3>
+<ol>
+<li>Аудиозаписи. Название, группа, альбом, год, жанр. Получить данные об альбомах вашей любимой группы.</li>
+<li>Фильмы. Название, год, страна, режиссёр, исполнители главных ролей. Получить данные обо всех фильмах с участием заданного актёра.</li>
+<li>Друзья. Фамилия, имя, отчество, дата рождения, адрес, телефон. Получить данные о всех друзьях, родившихся в заданном месяце.</li>
+<li>Кафе. Наименование блюда, категория (напитки, первые блюда и т.д.), калорийность, граммовки, цена. Получить данные о вторых блюдах.</li>
+<li>Студенты. Фамилия, имя, группа, оценки по трём экзаменам, средний балл. Получить данные по студентам, чей средний балл не ниже 4,5.</li>
+<li>Магазин автозапчастей. Наименование, марка, модель, стоимость. Получить данные о запчастях для Lada Vesta.</li>
+<li>Гостиницы. Наименование, кол-во звёзд, адрес, телефон, количество номеров, количество номеров люкс, свободные номера. Получить данные о лучшей гостинице с самым большим количеством свободных номеров.</li>
+<li>Междугородние автобусы. Номер автобуса, пункты и время отправления и прибытия. Получить данные об автобусах, следующих в заданный город.</li>
+<li>Клубы. Название, адрес, тематика (костюмированные вечеринки, живая музыка, и т.д.) время открытия и закрытия. Получить информацию о клубе, где есть караоке и который работает дольше всех.</li>
+<li>Компьютеры фирмы. Процессор, объём оперативной памяти, жёсткого диска, видеоадаптер, стоимость, год закупки. Получить данные о компьютерах, требующих обновления.</li>
+<li>Распродажи. Название магазина, адрес, процент скидки и на что она распространяется. Получить данные о самых выгодных покупках одежды.</li>
+<li>Перепись населения. ФИО, пол, адрес, возраст. Получить данные о людях пенсионного возраста.</li>
+</ol>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Лабораторная работа №12</title>
+      <link>https://evil-teacher.on.fleek.co/c/lab12/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/lab12/</guid>
+      <description>Файловый ввод/вывод</description>
+      <content:encoded><![CDATA[<h3 id="задания-для-самостоятельного-выполнения">Задания для самостоятельного выполнения</h3>
+<p>Добавить в код своего варианта лабораторной работы №11 функции сохранения данных в файл перед завершением работы программы и их загрузки из файла при старте программы, для обеспечения хранения данных между запусками.</p>
+<h3 id="требования-и-ограничения">Требования и ограничения</h3>
+<p>Предусмотреть возможноть просмотра всего списка, добавления и удаления записей. Необходимые операции с записями реализовать в виде отдельных функций.</p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

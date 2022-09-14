@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Дополнительные материалы on Лабы</title>
+    <link>https://evil-teacher.on.fleek.co/c/extras/</link>
+    <description>Recent content in Дополнительные материалы on Лабы</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language><atom:link href="https://evil-teacher.on.fleek.co/c/extras/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C. Ресурсы</title>
+      <link>https://evil-teacher.on.fleek.co/c/extras/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/extras/resources/</guid>
+      <description>Книги, курсы, сайты</description>
+      <content:encoded><![CDATA[<h3 id="книги">Книги</h3>
+<p><a href="/books/c/kernighan_ritchie_the_c_programming_language.pdf">Брайан Керниган, Деннис Ритчи. Язык программирования C</a></p>
+<p><a href="/books/c/stolyarov_nizkourovnevoe_programmirovanie_vol2.pdf">А.В. Столяров. Низкоуровневое программирование</a></p>
+<p><a href="/books/c/shildt_polnyy_spravochnok_po_c.djvu">Герберт Шилдт. Полный справочник по C</a></p>
+<p><a href="/books/c/griffith_gcc_the_complete_reference.djvu">Артур Гриффитс. GCC</a></p>
+<h3 id="курсы">Курсы</h3>
+<p><a href="https://www.cc4e.com/index.php">Dr. Chuck&rsquo;s C Programming for Everybody</a></p>
+<h3 id="видео">Видео</h3>
+<p><a href="https://www.youtube.com/watch?v=87SH2Cn0s9A">Bro Code - C Programming Full Course for Beginners</a></p>
+<h3 id="сайты">Сайты</h3>
+<p><a href="https://www.learn-c.org/">Learn C</a></p>
+<p><a href="https://exercism.org/tracks/c">Exercism C Track</a></p>
+<p><a href="https://www.programiz.com/c-programming">Programmiz. Learn C Programming</a></p>
+<p><a href="https://www.codewars.com">Codewars</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>C. Отладка в CLion</title>
+      <link>https://evil-teacher.on.fleek.co/c/extras/debug/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://evil-teacher.on.fleek.co/c/extras/debug/</guid>
+      <description>Инструкция по отладке</description>
+      <content:encoded><![CDATA[<p>Для примера рассмотрим такую программу:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define N 10
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">seed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">read</span><span class="p">(</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;/dev/random&#34;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">seed</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">seed</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">srand</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;My array:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">N</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%2d&#34;</span><span class="p">,</span>  <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">Summ: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Несмотря на то, что программа является заведомо рабочей, на ней можно продемонстрировать некоторые моменты отладки.</p>
+<p>Чтобы начать процесс отладки, сначала нужно поставить точку останова на какой-либо строке кода. Это можно сделать как минимум тремя способами:</p>
+<ul>
+<li>кликнув по пустой области между номером нужной строки и вертикальной чертой, правее которой мы пишем код;</li>
+<li>командой <code>Toggle line breakpoint</code> из меню <code>Run</code>;</li>
+<li>нажав <code>Ctrl+F8</code>.</li>
+</ul>
+<p>Точка останова на строке 14:</p>
+<!-- raw HTML omitted -->
+<p></p>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

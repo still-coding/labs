@@ -4,7 +4,7 @@ summary: Одномерные массивы
 description: Одномерные массивы
 draft: false
 math: true
-weight: 6
+weight: 60
 robotsNoIndex: true
 ---
 

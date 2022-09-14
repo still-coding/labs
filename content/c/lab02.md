@@ -4,7 +4,7 @@ summary: Алгебраические вычисления
 description: Алгебраические вычисления
 draft: false
 math: true
-weight: 2
+weight: 20
 robotsNoIndex: true
 ---
 

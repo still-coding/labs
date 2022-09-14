@@ -4,7 +4,7 @@ summary: Циклические алгоритмы
 description: Циклические алгоритмы
 draft: false
 math: true
-weight: 3
+weight: 30
 robotsNoIndex: true
 ---
 

@@ -4,7 +4,7 @@ summary: Ветвящиеся алгоритмы
 description: Ветвящиеся алгоритмы
 draft: false
 math: true
-weight: 1
+weight: 10
 robotsNoIndex: true
 ---
 

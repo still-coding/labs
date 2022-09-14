@@ -4,7 +4,7 @@ summary: Символы
 description: Символы
 draft: false
 math: false
-weight: 8
+weight: 80
 robotsNoIndex: true
 ---
 
