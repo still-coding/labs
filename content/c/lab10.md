@@ -46,8 +46,8 @@ if (!a)
 int i, j;
 for (i = 0; i < n; i++)
 {
-    p[i] = (int *)malloc(m * sizeof(int));
-    if (!p[i])
+    a[i] = (int *)malloc(m * sizeof(int));
+    if (!a[i])
         fail();
 }
 for (i = 0; i < n; i++)
