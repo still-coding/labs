@@ -4,7 +4,7 @@ summary: Инструкция по отладке
 # description: 123
 draft: false
 math: false
-weight: 2
+weight: 3
 robotsNoIndex: true
 ---
 

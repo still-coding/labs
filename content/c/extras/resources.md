@@ -4,7 +4,7 @@ summary: Книги, курсы, сайты
 # description: 123
 draft: false
 math: false
-weight: 1
+weight: 2
 robotsNoIndex: true
 showToc: false
 ---
