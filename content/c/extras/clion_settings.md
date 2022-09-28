@@ -4,7 +4,7 @@ summary: Как в лекциях
 # description: 123
 draft: false
 math: false
-weight: 3
+weight: 4
 robotsNoIndex: true
 showToc: false
 ---
