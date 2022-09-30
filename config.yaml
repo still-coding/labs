@@ -34,6 +34,8 @@ params:
               url: "c"
             - name: "Python"
               url: "python"
+            - name: "СПО ПМ"
+              url: "ssw_pm"
 
     socialIcons:
         - name: "discord"
