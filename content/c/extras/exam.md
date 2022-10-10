@@ -1,6 +1,6 @@
 ---
 title: "C. Вопросы к экзамену"
-# summary: 
+summary: Список экзаменационных вопросов 
 # description: 123
 draft: false
 math: false
