@@ -4,7 +4,7 @@ summary: Условия и циклы 1. Автотестирование
 description: Условия и циклы 1. Автотестирование
 draft: false
 math: false
-weight: 3
+weight: 30
 robotsNoIndex: true
 showToc: false
 ---

@@ -4,7 +4,7 @@ summary: Знакомство
 description: Знакомство
 draft: false
 math: false
-weight: 1
+weight: 10
 robotsNoIndex: true
 showToc: false
 ---

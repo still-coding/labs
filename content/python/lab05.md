@@ -4,7 +4,7 @@ summary: Функции высшего порядка и лямбда-выраж
 description: Функции высшего порядка и лямбда-выражения
 draft: false
 math: false
-weight: 5
+weight: 50
 robotsNoIndex: true
 showToc: false
 ---

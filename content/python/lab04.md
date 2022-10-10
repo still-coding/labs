@@ -4,7 +4,7 @@ summary: Условия и циклы 2
 description: Условия и циклы 2
 draft: false
 math: false
-weight: 4
+weight: 40
 robotsNoIndex: true
 showToc: false
 ---

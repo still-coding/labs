@@ -4,7 +4,7 @@ summary: Расчётные задачи
 description: Расчётные задачи
 draft: false
 math: true
-weight: 2
+weight: 20
 robotsNoIndex: true
 showToc: false
 ---
