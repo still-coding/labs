@@ -78,7 +78,7 @@ z(y) = 3.008924
 2. \\( y = \arccos (2\sin x), z = \sqrt{\cos y^2}. \\)
 3. \\( y = \frac{2^x + 2^{-x}}{2}, z = \sqrt{2 + y - y^2}. \\)
 4. \\( y = \ctg \pi x + \arccos(2^x), z = \operatorname{sgn} y. \\)
-5. \\( y = \sqrt{\sin 2x} + \sqrt{\sin 2x}, z = \sqrt[4]{\ln \tg (y - \frac{\pi}{8})}. \\)
+5. \\( y = \sqrt{\sin 2x} + \sqrt{\sin 3x}, z = \sqrt[4]{\ln \tg (y - \frac{\pi}{8})}. \\)
 6. \\( y = 5\sqrt{\sin \sqrt{x}}, z = \lg \cos \ln y. \\)
 7. \\( y = (x - 2)\sqrt{\frac{1+x}{1-x}}, z = \ln (y^2 - 1). \\)
 8. \\( y = -\ln(x+2) - \ln(x-2), z = \sqrt{3y - y^3}. \\)
