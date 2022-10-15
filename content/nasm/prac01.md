@@ -13,6 +13,8 @@ showToc: true
 
 Для сборки программ нужно установить NASM, а также GCC, если его почему-то нет из коробки в вашем дистрибутиве Linux.
 
+Архитектуру amd64 и имеющиеся инструкции посмотрите тут: [https://cs.lmu.edu/~ray/notes/x86overview/](https://cs.lmu.edu/~ray/notes/x86overview/)
+
 Я приготовил вам стильный-модный-молодёжный универсальный makefile с переменными и выводом возврата программы:
 
 ```makefile
@@ -104,7 +106,7 @@ _start:
     mov     rax, 2
     sub     rbx, rax
     imul    rbx, 2
-   ; Попробуйте выполнить эти операции вместо предыдущей
+    ; Попробуйте выполнить эти операции вместо предыдущей
     ; imul    rbx, rax, 17
     ; mul     rbx
    
@@ -209,6 +211,10 @@ done:
     mov     rax, SYS_EXIT
     syscall
 ```
+
+Также обратите внимание на условные инструкции (`cmovl`) в `maxofthree` из примера Mixing C and Assembly Language в [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
+
+
 
 ### Задание
 
