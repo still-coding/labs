@@ -9,11 +9,11 @@ robotsNoIndex: true
 showToc: true
 ---
 
-### Подготовка 
+### Подготовка
 
 Для сборки программ нужно установить NASM, а также GCC, если его почему-то нет из коробки в вашем дистрибутиве Linux.
 
-Архитектуру amd64 и имеющиеся инструкции посмотрите тут: [https://cs.lmu.edu/~ray/notes/x86overview/](https://cs.lmu.edu/~ray/notes/x86overview/)
+Архитектуру amd64 и имеющиеся инструкции посмотрите тут: [x86 Architecture Overview](https://cs.lmu.edu/~ray/notes/x86overview/).
 
 Я приготовил вам стильный-модный-молодёжный универсальный makefile с переменными и выводом возврата программы:
 
@@ -36,7 +36,7 @@ $(EXEC): $(OBJ)
 
 $(OBJ): $(SRC)
 	nasm -f elf64 $?
-	
+
 clean:
 	rm -f $(EXEC) $(OBJ)
 ```
@@ -65,7 +65,7 @@ make F=hello
 ```
 Поскольку переменная F в мейкфайле не объявлена, её нужно передавать как параметр make и после знака равенства указывать имя файла без расширения.
 
-А теперь более читаемый вариант:
+А теперь более читаемый вариант предыдущей программы:
 ```nasm
 %define     SYS_WRITE 1
 %define     STDOUT 1
@@ -109,7 +109,7 @@ _start:
     ; Попробуйте выполнить эти операции вместо предыдущей
     ; imul    rbx, rax, 17
     ; mul     rbx
-   
+
     mov     rdx, 0
     mov     rax, 1000
     idiv    rbx
@@ -138,7 +138,7 @@ extern      printf
 section     .data
 format:
         db  "%ld", 10, 0
-        
+
 section     .text
 main:
     mov     rbx, 5
@@ -149,14 +149,14 @@ main:
     mov     rdx, 0
     mov     rax, 1000
     idiv    rbx
-    
+
     mov     rdi, format
     mov     rsi, rax
     xor     rax, rax
     sub     rsp, 8
     call    printf
     add     rsp, 8
-    
+
     xor     rdi, rdi
     mov     rax, SYS_EXIT
     syscall
@@ -212,7 +212,7 @@ done:
     syscall
 ```
 
-Также обратите внимание на условные инструкции (`cmovl`) в `maxofthree` из примера Mixing C and Assembly Language в [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
+Также обратите внимание на условные инструкции (`cmovl`) в `maxofthree` из примера Mixing C and Assembly Language в [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/).
 
 
 
