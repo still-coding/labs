@@ -39,7 +39,7 @@ showToc: false
     Ключ `-vga vmware` может быть полезен в случае проблем с видеодрайверами.
     Для справки: https://wiki.archlinux.org/title/QEMU
 
-### Установка Debian
+### 1. Установка Debian
 
 Тут можно скачать установочный iso образ Debian https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/
 
