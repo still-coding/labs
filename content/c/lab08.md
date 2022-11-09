@@ -48,22 +48,23 @@ robotsNoIndex: true
 #include <termios.h>
 #include <unistd.h>
 
-int mygetch 
+int mygetch()
 {
     struct termios oldt, newt;
     int c;
     tcgetattr(STDIN_FILENO, &oldt);
-    newt = oldt ;
+    newt = oldt;
     newt.c_lflag &= ~(ICANON | ECHO);
     tcsetattr(STDIN_FILENO, TCSANOW, &newt);
     c = getchar();
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-    return c ;
+    return c;
 }
 
 int main()
 {
     char a = mygetch();
+    printf("%c\n", a);
     return 0;
 }
 ```
