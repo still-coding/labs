@@ -38,6 +38,8 @@ params:
               url: "nasm"
             - name: "СПО ПМ"
               url: "ssw_pm"
+            - name: "СПО (з)"
+              url: "https://bit.ly/sswLabs"
 
     socialIcons:
         - name: "discord"
@@ -56,19 +58,19 @@ params:
 # title: ExampleSite
 # paginate: 5
 # theme: papermodx
-# 
+#
 # enableRobotsTXT: true
 # buildDrafts: false
 # buildFuture: false
 # buildExpired: false
 # pygmentsUseClasses: true
-# 
+#
 # googleAnalytics: UA-123-45
-# 
+#
 # minify:
 #     disableXML: true
 #     minifyOutput: true
-# 
+#
 # params:
 #     env: production # to enable google analytics, opengraph, twitter-cards and schema.
 #     title: ExampleSite
@@ -80,7 +82,7 @@ params:
 #     DateFormat: "January 2, 2006"
 #     defaultTheme: auto # dark, light
 #     disableThemeToggle: false
-# 
+#
 #     ShowReadingTime: true
 #     ShowShareButtons: true
 #     ShowPostNavLinks: true
@@ -93,7 +95,7 @@ params:
 #     hideSummary: false
 #     showtoc: false
 #     tocopen: false
-# 
+#
 #     assets:
 #         # disableFingerprinting: true
 #         favicon: "<link / abs url>"
@@ -101,12 +103,12 @@ params:
 #         favicon32x32: "<link / abs url>"
 #         apple_touch_icon: "<link / abs url>"
 #         safari_pinned_tab: "<link / abs url>"
-# 
+#
 #     label:
 #         text: "Home"
 #         icon: /apple-touch-icon.png
 #         iconHeight: 35
-# 
+#
 #     # profile-mode
 #     profileMode:
 #         enabled: false # needs to be explicitly set
@@ -121,12 +123,12 @@ params:
 #               url: posts
 #             - name: Tags
 #               url: tags
-# 
+#
 #     # home-info mode
 #     homeInfoParams:
 #         Title: "Hi there \U0001F44B"
 #         Content: Welcome to my blog
-# 
+#
 #     socialIcons:
 #         - name: twitter
 #           url: "https://twitter.com/"
@@ -134,7 +136,7 @@ params:
 #           url: "https://stackoverflow.com"
 #         - name: github
 #           url: "https://github.com/"
-# 
+#
 #     analytics:
 #         google:
 #             SiteVerificationTag: "XYZabc"
@@ -142,17 +144,17 @@ params:
 #             SiteVerificationTag: "XYZabc"
 #         yandex:
 #             SiteVerificationTag: "XYZabc"
-# 
+#
 #     cover:
 #         hidden: true # hide everywhere but not in structured data
 #         hiddenInList: true # hide on list pages and home
 #         hiddenInSingle: true # hide on single page
-# 
+#
 #     editPost:
 #         URL: "https://github.com/<path_to_repo>/content"
 #         Text: "Suggest Changes" # edit text
 #         appendFilePath: true # to append file path to Edit link
-# 
+#
 #     # for search
 #     # https://fusejs.io/api/options.html
 #     fuseOpts:
