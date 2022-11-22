@@ -4,7 +4,7 @@ summary: Целочисленная арфиметика и условия
 description: Целочисленная арфиметика и условия
 draft: false
 math: false
-weight: 1
+weight: 10
 robotsNoIndex: true
 showToc: true
 ---
