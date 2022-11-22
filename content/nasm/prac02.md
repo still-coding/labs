@@ -4,7 +4,7 @@ summary: Вещественная арифметика
 description: Вещественная арифметика
 draft: false
 math: true
-weight: 1
+weight: 20
 robotsNoIndex: true
 showToc: true
 ---
