@@ -123,7 +123,7 @@ exit:
 Собираем и запускаем тем же мейкфайлом:
 
 ```bash
-$ make F=simd_stack C=1
+$ make F=simd C=1
 nasm -f elf64 simd.asm -F dwarf
 gcc -no-pie -g simd.o -o simd
 ---> running simd
