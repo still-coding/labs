@@ -9,7 +9,7 @@ robotsNoIndex: true
 showToc: true
 ---
 
-### Пример
+### Исходные данные
 
 Дан файл [`vector.bin`](/nasm/vector.bin), содержащий 8 чисел двойной точности. Посмотрим внимательно:
 
@@ -35,8 +35,12 @@ $ od -tx1f8 -w8 --endian=little vector.bin
 
 Вычислим длину вектора: \\( |\vec{v}| = \sqrt{\sum_{i=1}^n v_i^2 } \\) с использованием AVX и SSE инструкций:
 
+### Пример "в высоту"
+
+В этом примере используем стек и все xmm регистры --- неэстетично, но зато дёшево, надёжно и практично. Используем только SSE.
+
 ```nasm
-; simd.asm
+; simd_h.asm
 %define     SYS_READ    0
 %define     SYS_OPEN    2
 %define     SYS_CLOSE   3
@@ -49,7 +53,7 @@ section     .data
     res_outp:
         db  "|v| = %lf", 10, 0
     path:
-        db  "./vector.dat", 0
+        db  "./vector.bin", 0
     byte_size:
         db  8
 
@@ -90,14 +94,152 @@ print:
     mov     rax, 1
     movq    xmm0, [rsp + r15]
     call    printf
+
     add     r15, 8
+
+    cmp     r15, 64
+    jne     print
+
+
+calc:
+    movsd   xmm0, [rsp]
+    movsd   xmm1, [rsp + 8]
+    movsd   xmm2, [rsp + 16]
+    movsd   xmm3, [rsp + 24]
+    movsd   xmm4, [rsp + 32]
+    movsd   xmm5, [rsp + 40]
+    movsd   xmm6, [rsp + 48]
+    movsd   xmm7, [rsp + 56]
+
+    mulsd   xmm0, xmm0
+    mulsd   xmm1, xmm1
+    mulsd   xmm2, xmm2
+    mulsd   xmm3, xmm3
+    mulsd   xmm4, xmm4
+    mulsd   xmm5, xmm5
+    mulsd   xmm6, xmm6
+    mulsd   xmm7, xmm7
+
+    addsd   xmm0, xmm1
+    addsd   xmm0, xmm2
+    addsd   xmm0, xmm3
+    addsd   xmm0, xmm4
+    addsd   xmm0, xmm5
+    addsd   xmm0, xmm6
+    addsd   xmm0, xmm7
+
+    sqrtsd  xmm0, xmm0
+
+    mov     rdi, res_outp
+    mov     rax, 1
+    call    printf
+
+exit:
+    xor     rdi, rdi
+    mov     rax, SYS_EXIT
+    syscall
+```
+
+Собираем и запускаем тем же мейкфайлом:
+
+```bash
+$ make F=simd_h C=1
+nasm -f elf64 simd_h.asm -F dwarf
+gcc -no-pie -g simd_h.o -o simd
+---> running simd_h
+v[0] = -1.198669
+v[1] =  0.142802
+v[2] =  0.510628
+v[3] = -0.157549
+v[4] = -1.014295
+v[5] = -1.196055
+v[6] = -0.505112
+v[7] =  0.438317
+|v| = 2.156239
+```
+
+Работает всё это примерно так:
+
+{{< svg "static/images/nasm_prac3_1.svg" >}}
+
+
+### Пример "в ширину"
+
+Тут уже другой подход - стараемся располагать данные как можно шире. AVX + SSE.
+
+```nasm
+; simd_w.asm
+%define     SYS_READ    0
+%define     SYS_OPEN    2
+%define     SYS_CLOSE   3
+%define     SYS_EXIT    60
+%define     O_RDONLY    0
+
+section     .data
+    vec_outp:
+        db  "v[%lu] = % lf", 10, 0
+    res_outp:
+        db  "|v| = %lf", 10, 0
+    path:
+        db  "./vector.bin", 0
+    byte_size:
+        db  8
+
+
+section .bss
+    alignb 32
+    vector resq 8
+
+global      main
+extern      printf
+
+section     .text
+main:
+    mov     rax, SYS_OPEN
+    mov     rdi, path
+    mov     rsi, O_RDONLY
+    syscall
+
+    push    rax
+
+read_buffer:
+    mov     rax, SYS_READ
+    mov     rdi, [rsp]
+    mov     rsi, vector
+    mov     rdx, 64
+    syscall
+
+    cmp rax, 64
+    jne exit
+
+
+close:
+    mov     rax, SYS_CLOSE
+    mov     rdi, [rsp]
+    syscall
+
+    xor r15, r15
+    xor rdx, rdx
+
+print:
+    mov rax, r15
+    div byte [byte_size]
+
+    mov     rdi, vec_outp
+    mov     rsi, rax
+    mov     rax, 1
+    movq    xmm0, [vector + r15]
+    call    printf
+
+    add     r15, 8
+
     cmp     r15, 64
     jne     print
 
 calc:
     vzeroall
-    vmovupd ymm0, [rsp]
-    vmovupd ymm1, [rsp + 32]
+    vmovapd ymm0, [vector]
+    vmovapd ymm1, [vector + 32]
 
     vmulpd  ymm0, ymm0, ymm0
     vmulpd  ymm1, ymm1, ymm1
@@ -120,35 +262,17 @@ exit:
     syscall
 ```
 
-Собираем и запускаем тем же мейкфайлом:
+Запускаем так же, результат аналогичный. Но выглядит это теперь вот так:
 
-```bash
-$ make F=simd C=1
-nasm -f elf64 simd.asm -F dwarf
-gcc -no-pie -g simd.o -o simd
----> running simd
-v[0] = -1.198669
-v[1] =  0.142802
-v[2] =  0.510628
-v[3] = -0.157549
-v[4] = -1.014295
-v[5] = -1.196055
-v[6] = -0.505112
-v[7] =  0.438317
-|v| = 2.156239
-```
-
-Работает всё это примерно так:
-{{< svg "static/images/nasm_prac3_1.svg" >}}
+{{< svg "static/images/nasm_prac3_2.svg" >}}
 
 Смотреть что и как нужно [тут](https://www.officedaytime.com/simd512e/) и, конечно же, [тут](https://www.felixcloutier.com/x86/). И, самой собой, [тут](https://github.com/eteran/edb-debugger) (обязательно соберите себе edb или установите другой отладчик, поддерживающий x64 архитектуру):
 
 {{< figure src="/images/nasm_prac3.png" alt="edb" >}}
 
-
 ### Задание
 
-Вам дан файл, содержащий матрицу \\( A_{8 \times 8} \\). Вычислить \\( N(A) \\) с использованием векторных инструкций.
+Вам дан файл, содержащий матрицу \\( A_{8 \times 8} \\). Вычислить \\( N(A) \\) с использованием векторных инструкций. Используйте "широкий" подход.
 
 ### Варианты заданий
 
