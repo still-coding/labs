@@ -153,7 +153,7 @@ global      calc_z
 
 section     .text
 calc_y:
-    movsd   [x], xmm0
+    movq   [x], xmm0
     finit
     fld     qword [x]
     fld     qword [x]
@@ -172,11 +172,11 @@ calc_y:
     fmul
     fadd
     fstp    qword [res]
-    movsd   xmm0, [res]
+    movq   xmm0, [res]
     ret
 
 calc_z:
-    movsd   [x], xmm0
+    movq   [x], xmm0
     finit
     fld     qword [x]
     fld     qword [two]
@@ -193,7 +193,7 @@ calc_z:
     fscale
     fstp    qword [res]
     fstp    st0
-    movsd   xmm0, [res]
+    movq   xmm0, [res]
     ret
 ```
 
