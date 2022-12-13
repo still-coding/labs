@@ -1036,7 +1036,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
 ### Задания для самостоятельного выполнения
 
 Вычислить \\( N(A) \\), где:
-\\( A_{n \times m} =  (a_{ij})  = \big( f(i) + g(j) \big) \\).
+\\( A_{n \times m} =  (a_{ij})  = \big( f(i) + g(j) \big); i = 1, \dots, n; j = 1, \dots, m. \\)
 
 Задание выполнить 4 способами: чистый Python, чистый C и 2 способа по варианту. Протестировать на больших размерах матрицы, сравнить время выполнения.
 
@@ -1053,7 +1053,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * C-расширение.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 998.422546 \\)
+        \\( N(A_{10 \times 10}) = 911.309862 \\)
 
 2. \\( N(A) = \sqrt{ \max\limits_i \ |a_{ii}| } \\),
 
@@ -1066,7 +1066,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * So.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 5.192562 \\)
+        \\( N(A_{10 \times 10}) = 2.674782 \\)
 
 3. \\( N(A) = \sqrt{ \sum_{i=1}^n \sum_{j=1}^m a_{ij}^2 } \\),
 
@@ -1079,7 +1079,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * Cython.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 9.316394 \\)
+        \\( N(A_{10 \times 10}) = 9.026581 \\)
 
 4. \\( N(A) = \max\limits_i \sum_{j=1}^{m} |a_{ij}| \\),
 
@@ -1092,7 +1092,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * SWIG.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 1297.856034 \\)
+        \\( N(A_{10 \times 10}) = 2420.820042 \\)
 
 5. \\( N(A) = \sqrt{nm} \max\limits_{i,j} |a_{ij}| \\),
 
@@ -1105,7 +1105,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * So.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 83.377223 \\)
+        \\( N(A_{10 \times 10}) = 18.456529 \\)
 
 6. \\( N(A) = \Big( \sum_{i=1}^n \sum_{j=1}^m a_{ij}^p \Big) ^ \frac{1}{p} \\),
 
@@ -1118,7 +1118,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * Cython.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 25.607828, p = 3 \\)
+        \\( N(A_{10 \times 10}) = 38.838965, p = 3 \\)
 
 7. \\( N(A) = \sqrt{ | \operatorname{Tr} (A^TA) | } \\),
 
@@ -1131,8 +1131,8 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * SWIG.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 50.915015 \\)
-    
+        \\( N(A_{10 \times 10}) = 59.918901 \\)
+
 
 8. \\( N(A) = \frac{ \min\limits_{ij} |a_{ij}| + 1 }{ \max\limits_{ij} |a_{ij}| + 1 } - 1 \\),
 
@@ -1145,7 +1145,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * C-расширение.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = -0.8886 \\)
+        \\( N(A_{10 \times 10}) = -0.895911 \\)
 
 9. \\( N(A) = \sqrt{ \min\limits_{ij} |b_{ij}| } \\), \\( B = A^{\operatorname{adT}}A  \\), где \\( A^{\operatorname{adT}} \\) --- \\( A \\), транспонированная относительно побочной диагонали;
 
@@ -1158,7 +1158,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * Cython.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 4.851826 \\)
+        \\( N(A_{10 \times 10}) = 14.308647 \\)
 
 10. \\( N(A) = \sqrt{ \sum_{i=1}^n |a_{ii}| + |a_{i, n-i}| } \\),
 
@@ -1171,7 +1171,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * SWIG.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 4.328524 \\)
+        \\( N(A_{10 \times 10}) = 4.415591 \\)
 
 11. \\( N(A) = \frac{ \sqrt{ \sum_{i=1}^n |a_{i1}| + |a_{im}| +  \sum_{j=2}^{m-1} |a_{1j}| + |a_{nj}| } }{n + m} \\),
 
@@ -1184,7 +1184,7 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * So.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 0.368 \\)
+        \\( N(A_{10 \times 10}) = 0.362621 \\)
 
 12. \\( N(A) = \frac{1}{nm} \sum_{i=1}^n \sum_{j=1}^m a_{ij} \\)
 
@@ -1197,4 +1197,4 @@ python3 1.py  31.08s user 0.01s system 99% cpu 31.097 total
     * Cython.
 
     Контрольное значение:
-        \\( N(A_{10 \times 10}) = 0.769336 \\)
+        \\( N(A_{10 \times 10}) = 0.079255 \\)
