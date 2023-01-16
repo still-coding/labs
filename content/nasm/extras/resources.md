@@ -23,6 +23,8 @@ showToc: false
 
 [Ray Seyfarth. Introduction to 64bit Intel Assembly Language Programming for Linux](/books/nasm/Seyfarth_Introduction_to_64bit_Intel_Assembly.pdf)
 
+[А.В. Столяров. Программирование: введение в профессию. Том I: Азы программирования](http://www.stolyarov.info/books/pdf/progintro_e2v1.pdf)
+
 
 ### Сайты
 
