@@ -36,10 +36,12 @@ params:
               url: "python"
             - name: "NASM"
               url: "nasm"
-            - name: "СПО ПМ"
-              url: "ssw_pm"
-            - name: "СПО (з)"
-              url: "https://bit.ly/sswLabs"
+            - name: "СПО"
+              url: "ssw"
+            # - name: "СПО ПМ"
+            #   url: "ssw_pm"
+            # - name: "СПО (з)"
+            #   url: "https://bit.ly/sswLabs"
 
     socialIcons:
         - name: "discord"
