@@ -1,6 +1,6 @@
 ---
 title: "СПО. Допуск к лабораторным работам"
-# summary: Shell скрипты
+summary: Требования по допуску к сдаче лаб
 # description: Shell скрипты
 draft: false
 math: false
