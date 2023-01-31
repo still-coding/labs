@@ -38,6 +38,8 @@ params:
               url: "nasm"
             - name: "СПО"
               url: "ssw"
+            - name: "ТП"
+              url: "tp"
             # - name: "СПО ПМ"
             #   url: "ssw_pm"
             # - name: "СПО (з)"
