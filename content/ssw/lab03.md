@@ -4,7 +4,7 @@ summary: WinAPI. Кросс-компиляция
 description: WinAPI. Кросс-компиляция
 draft: false
 math: false
-weight: 20
+weight: 30
 robotsNoIndex: true
 showToc: true
 ---
