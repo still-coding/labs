@@ -4,7 +4,7 @@ summary: Требования по допуску к сдаче лаб
 # description: Shell скрипты
 draft: false
 math: false
-weight: 20
+weight: 5
 robotsNoIndex: true
 showToc: false
 ---

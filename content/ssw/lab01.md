@@ -4,7 +4,7 @@ summary: Shell скрипты
 description: Shell скрипты
 draft: false
 math: false
-weight: 20
+weight: 10
 robotsNoIndex: true
 showToc: false
 ---
