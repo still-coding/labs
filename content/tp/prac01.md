@@ -4,7 +4,7 @@ summary: Списки
 description: Списки
 draft: false
 math: false
-weight: 20
+weight: 90
 robotsNoIndex: true
 showToc: false
 ---
