@@ -22,6 +22,8 @@ showToc: false
 
 [Денис Колисниченко. Руководство по командам и Shell-программированию в Linux](/books/ssw/Kolisnichenko_Shell_manual.pdf)
 
+[Денис Колисниченко. Разработка Linux-приложений](/books/ssw/Kolisnichenko_Linux_app_dev.pdf)
+
 [Мендель Купер. Искусство программирования на языке сценариев командной оболочки](/books/ssw/Advanced_Bash_Scripting_Guide.pdf)
 
 [Daniel Bovet, Marco Cesati. Understanding Linux Kernel](/books/ssw/Bovet_Cesati_Understanding_Linux_Kernel.pdf)
