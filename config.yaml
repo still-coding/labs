@@ -4,7 +4,7 @@ languageCode: ru
 title: Лабы
 theme: papermodx
 relativeURLS: true
-
+buildDrafts: false
 # math: true
 
 minify:
