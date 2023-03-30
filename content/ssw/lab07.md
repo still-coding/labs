@@ -2,7 +2,7 @@
 title: "СПО. Лабораторная работа №7"
 summary: Создание простейшей ОС
 description: Создание простейшей ОС
-draft: true
+draft: false
 math: false
 weight: 70
 robotsNoIndex: true
