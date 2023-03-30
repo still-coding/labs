@@ -23,6 +23,8 @@ showToc: false
 
 [С. Скиена. Алгоритмы. Руководство по разработке](/books/tp/Skiena_Algorithm_Design_Manual.djvu)
 
+[Р. Коул. Блистательный Agile](/books/tp/Cole_Scotcher_Agile.pdf)
+
 
 ### Курсы
 
@@ -35,6 +37,6 @@ showToc: false
 
 [LeetCode](https://leetcode.com/)
 
-[Leetcode Solutions](http://leetcode.ca)
+[LeetCode Solutions](http://leetcode.ca)
 
 [Codewars](https://www.codewars.com)
