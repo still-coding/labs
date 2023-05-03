@@ -17,24 +17,30 @@ TocOpen: false
 
 ### Ход работы
 
-Приведена последовательость работы для Debian 11. На других дистрибутивах может отличаться.
+Сборка примеров тестировалась на Debian 11 (ядро 5.10.0-21-amd64) и Archlinux (ядро 6.2.11-arch1-1).
 
 1. Установите необходимые пакеты
 
-```bash
+#### Debian
+```shell
 sudo apt install build-essential kmod linux-headers-`uname -r`
+```
+
+#### Arch
+```shell
+sudo pacman -Sy base-devel kmod linux-headers
 ```
 
 2. Скачайте и распакуйте [архив с примерами](/ssw_pm/lab05_kmods.zip).
 
 3. Зайдите в директорию `hello` и соберите модуль командой:
-```bash
+```shell
 make
 ```
 
 4. Для работы с модулями вам понадобятся следующие команды:
 
-```bash
+```shell
 lsmod
 lsmod | grep <название>
 sudo modinfo <название>.ko
