@@ -40,10 +40,11 @@ params:
               url: "ssw"
             - name: "ТП"
               url: "tp"
+            - name: "Прог"
+              url: "prog_pm"
             # - name: "СПО ПМ"
             #   url: "ssw_pm"
-            # - name: "СПО (з)"
-            #   url: "https://bit.ly/sswLabs"
+
 
     socialIcons:
         - name: "discord"
