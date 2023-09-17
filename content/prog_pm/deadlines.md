@@ -5,7 +5,7 @@ description: График сдачи лабораторных работ
 draft: false
 math: false
 weight: 3
-robotsNoIndx: true
+robotsNoIndex: true
 showToc: false
 ---
 
@@ -15,6 +15,7 @@ showToc: false
 | :-------: | :-------:         |
 | Лаб 0     |  04.09 -- 18.09   |
 | Лаб 1     |  11.09 -- 25.09   |
+| Лаб 2     |  18.09 -- 02.10   |
 
 
 Если вы не успели сдать лабораторную работу в срок -- сдаёте на консультации.
