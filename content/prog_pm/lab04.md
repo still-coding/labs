@@ -4,7 +4,7 @@ summary: Основные типы и операции в Python
 description: Основные типы и операции в Python
 draft: false
 math: true
-weight: 30
+weight: 40
 robotsNoIndex: true
 showToc: false
 ---
