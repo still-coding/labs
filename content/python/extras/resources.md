@@ -23,6 +23,8 @@ showToc: false
 
 [Dr. Chuck's Python for Everybody](https://www.py4e.com/)
 
+[freecodecamp - Dave Gray's Python Tutorial for Beginners (with mini-projects)](https://youtu.be/qwAFL1597eM)
+
 
 ### Сайты
 
