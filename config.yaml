@@ -47,8 +47,8 @@ params:
 
 
     socialIcons:
-        - name: "discord"
-          url: "https://discord.com/users/390569196247056388"
+        - name: "telegram"
+          url: "https://t.me/ivan0dev"
 
     ShowCodeCopyButtons: true
     defaultTheme: dark
