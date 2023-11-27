@@ -1,6 +1,6 @@
 ---
-title: "Прог. Лабораторная работа №9"
-summary: Модули и пакеты
+title: "Прог. Лабораторная работа №10"
+summary: Генераторы
 description: Генераторы
 draft: false
 math: false
