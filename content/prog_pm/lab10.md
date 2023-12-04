@@ -1,7 +1,7 @@
 ---
 title: "Прог. Лабораторная работа №10"
-summary: Генераторы
-description: Генераторы
+summary: Пакеты и модули
+description: Пакеты и модули
 draft: false
 math: false
 weight: 100
