@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №5"
 summary: Функции высшего порядка и лямбда-выражения
 description: Функции высшего порядка и лямбда-выражения
-draft: false
+draft: true
 math: false
 weight: 50
 robotsNoIndex: true

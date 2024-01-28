@@ -4,7 +4,7 @@ summary: Требования для допуска к экзамену
 description: Требования для допуска к экзамену
 draft: false
 math: false
-weight: 2
+weight: 4
 robotsNoIndex: true
 showToc: false
 ---

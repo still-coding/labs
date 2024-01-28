@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №14"
 summary: Работа с БД через SQLAlchemy
 description: Работа с БД через SQLAlchemy
-draft: false
+draft: true
 math: false
 weight: 140
 robotsNoIndex: true

@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №8"
 summary: Ещё немного о функциях
 description: Ещё немного о функциях
-draft: false
+draft: true
 math: false
 weight: 80
 robotsNoIndex: true
