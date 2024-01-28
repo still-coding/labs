@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №11"
 summary: ООП. Знакомство
 description: ООП. Знакомство
-draft: false
+draft: true
 math: false
 weight: 110
 robotsNoIndex: true

@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №15"
 summary: Повышение производительности Python
 description: Повышение производительности Python
-draft: false
+draft: true
 math: true
 weight: 150
 robotsNoIndex: true

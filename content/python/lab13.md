@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №13"
 summary: ООП. Классы и объекты
 description: ООП. Классы и объекты
-draft: false
+draft: true
 math: false
 weight: 130
 robotsNoIndex: true

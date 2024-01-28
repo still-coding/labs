@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №9"
 summary: Модули и пакеты
 description: Модули и пакеты
-draft: false
+draft: true
 math: false
 weight: 90
 robotsNoIndex: true

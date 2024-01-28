@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №12"
 summary: ООП. Автотестирование
 description: ООП. Автотестирование
-draft: false
+draft: true
 math: false
 weight: 120
 robotsNoIndex: true

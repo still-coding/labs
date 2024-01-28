@@ -2,7 +2,7 @@
 title: "Python. Лабораторная работа №7"
 summary: Рекурсия 2. Автотестирование
 description: Рекурсия 2. Автотестирование
-draft: false
+draft: true
 math: false
 weight: 70
 robotsNoIndex: true
