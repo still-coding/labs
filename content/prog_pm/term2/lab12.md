@@ -4,7 +4,7 @@ summary: Модули и пакеты c GUI
 description: Модули и пакеты c GUI
 draft: false
 math: false
-weight: 10
+weight: 120
 robotsNoIndex: true
 showToc: false
 ---
