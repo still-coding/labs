@@ -63,11 +63,10 @@ int mygetch()
 
 int main()
 {
-    char a = mygetch();
     while (1)
     {
+        char a = mygetch();
         printf("%c %d\n", a, a);
-        a = mygetch();
     }
     return 0;
 }
