@@ -20,7 +20,6 @@ robotsNoIndex: true
 
 ```c
 #include <stdio.h>
-#include <math.h>
 
 int main()
 {
@@ -49,10 +48,9 @@ int main()
     {
         if (c > 0.0f)
             if (a || b)
-                printf("+ ");
+                printf("+ %f", c);
             else
-                printf("- ");
-        printf("%f", fabs(c));
+                printf("- %f", -c);
     }
     printf("\n");
 
