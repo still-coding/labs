@@ -1,5 +1,5 @@
 ---
-title: "Прог. Лабораторная работа №5"
+title: "Python. Лабораторная работа №5"
 summary: Генераторы
 description: Генераторы
 draft: false
