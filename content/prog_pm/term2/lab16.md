@@ -1,5 +1,5 @@
 ---
-title: "Прог. Лабораторная работа №15"
+title: "Прог. Лабораторная работа №16"
 summary: Selenium и конструктор запросов
 description: Selenium и конструктор запросов
 draft: false
