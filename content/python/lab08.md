@@ -1,5 +1,5 @@
 ---
-title: "Прог. Лабораторная работа №8"
+title: "Python. Лабораторная работа №8"
 summary: Итоговый проект
 description: Итоговый проект
 draft: false
