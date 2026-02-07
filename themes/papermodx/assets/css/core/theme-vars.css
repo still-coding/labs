@@ -3,10 +3,11 @@
     --content-gap: 20px;
     --nav-width: 960px;
     --main-width: 720px;
-    --post-width: 900px;
+    --post-width: 720px;
     --header-height: 60px;
     --footer-height: 80px;
     --radius: 8px;
+    --monospace: "Lucida Console", Monaco, "Consolas", monospace;
 
     --theme: rgb(255, 255, 255);
     --entry: rgb(255, 255, 255);
@@ -55,6 +56,10 @@
     --link-underline-shadow: 0 1px 0 var(--link-color);
     --link-hover-underline-color: var(--link-hover-color);
     --link-hover-underline-shadow: 0 2px 0 var(--link-hover-underline-color);
+
+    /* for type pages theming */
+    --signature: var(--primary);
+    --signature-bg: var(--secondary);
 }
 
 .list-page {
