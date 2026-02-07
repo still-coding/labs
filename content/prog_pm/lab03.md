@@ -1,5 +1,5 @@
 ---
-title: "Прог. Лабораторная работа №6"
+title: "Прог. Лабораторная работа №3"
 summary: Расчётные задачи. Itertools
 description: Расчётные задачи. Itertools
 draft: false
