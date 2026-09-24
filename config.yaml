@@ -1,9 +1,9 @@
-baseURL: "https://evil-teacher.orbiter.website/"
+baseURL: "https://labs.evil-teacher.ru/"
 defaultContentLanguage: ru
 languageCode: ru
 title: Лабы
 theme: papermodx
-relativeURLS: true
+relativeURLs: true
 buildDrafts: false
 disableKinds: ["RSS"]
 # math: true

@@ -1,0 +1,113 @@
+name: deploy
+
+# build → CAR/CID → pin on Filebase → rsync to the VPS → DNS (A + DNSLink) → prune old pins
+# Setup, secrets and rollback: deploy/README.md
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  # both change the output, and so the CID: bump them on purpose, never alongside a content change
+  HUGO_VERSION: "0.165.0"
+  IPFS_CAR_VERSION: "3.1.0"
+  DOMAIN: labs.evil-teacher.ru
+  ZONE: evil-teacher.ru
+  ORIGIN_IP: 81.200.144.62
+  FILEBASE_BUCKET: ${{ vars.FILEBASE_BUCKET }}
+  KEEP_PINS: 5
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Build
+        run: |
+          hugo --minify
+          test -f public/index.html
+
+      - name: Pack CAR
+        id: car
+        run: |
+          npx --yes "ipfs-car@${IPFS_CAR_VERSION}" pack ./public --output site.car
+          CID=$(npx --yes "ipfs-car@${IPFS_CAR_VERSION}" roots site.car | grep -m1 '^baf')
+          echo "cid=$CID" >> "$GITHUB_OUTPUT"
+          echo "### CID: \`$CID\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "size: $(du -h site.car | cut -f1)"
+
+      - name: Pin on Filebase
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.FILEBASE_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.FILEBASE_SECRET }}
+          AWS_DEFAULT_REGION: us-east-1
+          CID: ${{ steps.car.outputs.cid }}
+        run: |
+          fb() { aws --endpoint-url https://s3.filebase.com "$@"; }
+          KEY="labs-${CID}.car"
+          # same CID = same bytes: a re-run or a rollback to an old commit uploads nothing
+          if fb s3api head-object --bucket "$FILEBASE_BUCKET" --key "$KEY" >/dev/null 2>&1; then
+            echo "already pinned: $KEY"
+          else
+            # one PutObject, not `s3 cp`: that switches to multipart above 8 MB, and Filebase
+            # documents CAR import for a plain PUT (fine up to 5 GB)
+            fb s3api put-object --bucket "$FILEBASE_BUCKET" --key "$KEY" \
+              --body site.car --metadata import=car >/dev/null
+          fi
+          GOT=$(fb s3api head-object --bucket "$FILEBASE_BUCKET" --key "$KEY" \
+                  --query Metadata.cid --output text)
+          echo "Filebase CID: $GOT"
+          test "$GOT" = "$CID"
+
+      - name: Deploy to VPS
+        env:
+          SSH_KEY: ${{ secrets.VPS_DEPLOY_KEY }}
+        run: |
+          install -m 600 /dev/null ~/deploy_key
+          printf '%s\n' "$SSH_KEY" > ~/deploy_key
+          # the server pins this key to rsync into /srv/labs (rrsync), so "." is /srv/labs;
+          # rrsync rejects "/" and any ".." as unsafe
+          rsync -rlpt --delete --chmod=D755,F644 \
+            -e "ssh -i $HOME/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=deploy/known_hosts" \
+            public/ "deploy@${ORIGIN_IP}:."
+          rm -f ~/deploy_key
+          # straight to the origin, past Cloudflare
+          curl -fsS -o /dev/null -H "Host: $DOMAIN" "http://$ORIGIN_IP/"
+          echo "origin serves $DOMAIN"
+
+      - name: Point DNS at this deploy
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_DNS_TOKEN }}
+          CID: ${{ steps.car.outputs.cid }}
+        run: deploy/cloudflare-dns.sh
+
+      - name: Prune old pins
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.FILEBASE_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.FILEBASE_SECRET }}
+          AWS_DEFAULT_REGION: us-east-1
+          CID: ${{ steps.car.outputs.cid }}
+        run: |
+          fb() { aws --endpoint-url https://s3.filebase.com "$@"; }
+          # oldest first, never the one just deployed (a rollback re-uses an old, early-dated object)
+          fb s3api list-objects-v2 --bucket "$FILEBASE_BUCKET" --prefix labs- \
+              --query 'sort_by(Contents, &LastModified)[].Key' --output text \
+            | tr '\t' '\n' | { grep '^labs-' || true; } | { grep -vx "labs-${CID}.car" || true; } \
+            | head -n -$((KEEP_PINS - 1)) \
+            | while read -r old; do
+                fb s3api delete-object --bucket "$FILEBASE_BUCKET" --key "$old"
+                echo "unpinned $old"
+              done

@@ -1,0 +1,21 @@
+# labs.evil-teacher.ru — the Hugo site. CI rsyncs ./public into /srv/labs as the `deploy` user.
+http://labs.evil-teacher.ru {
+	root * /srv/labs
+	encode zstd gzip
+	file_server
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Cache-Control "public, max-age=600"
+	}
+
+	# Hugo renders its own 404 page; serve it with the real status
+	handle_errors {
+		@notfound expression {err.status_code} == 404
+		handle @notfound {
+			rewrite * /404.html
+			file_server
+		}
+	}
+}

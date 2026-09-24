@@ -1,3 +1,4 @@
 *.lock
 public/
+site.car
 static/books/

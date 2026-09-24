@@ -1,0 +1,11 @@
+# /etc/caddy/Caddyfile — shared by every site on this box.
+#
+# Each site owns one file under /etc/caddy/sites/ and its deploy writes only that file:
+#   labs.caddy       labs repo, deploy/server/sites/
+#   root.caddy       labs repo, deploy/server/sites/ (placeholder on the bare domain)
+#   anti-fly.caddy   anti_fly repo, deploy/push.sh
+#
+# Everything sits behind Cloudflare's proxy with SSL mode Flexible: the origin speaks plain HTTP
+# and must never redirect HTTP to HTTPS, or every request loops through the proxy forever.
+
+import /etc/caddy/sites/*.caddy
