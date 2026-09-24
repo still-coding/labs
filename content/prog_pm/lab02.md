@@ -98,7 +98,7 @@ pip install -r requirements.txt
 
 ### Для справки
 
-1. [Devpractice Team. Библиотека Matplotlib](/books/prog_pm/matplotlib.pdf)
+1. [Devpractice Team. Библиотека Matplotlib](https://devpractice.ru/matplotlib-book/)
 2. [Matplotlib](https://matplotlib.org/)
 3. [Seaborn](https://seaborn.pydata.org/)
 4. [Plotly](https://plotly.com/python/)

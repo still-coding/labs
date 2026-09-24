@@ -10,16 +10,16 @@ showToc: false
 ---
 ### Книги
 
-[Чарльз Петцольд. Код](/books/ssw/Petzold_Code.pdf)
+Чарльз Петцольд. Код. — М.: Русская Редакция. ISBN 5-7502-0159-7
 
-[Эндрю Таненбаум, Херберт Бос. Современные операционные системы](/books/ssw/Tanenbaum_ModernOS.pdf)
+Эндрю Таненбаум, Херберт Бос. Современные операционные системы. 4-е изд. — СПб.: Питер, 2015. ISBN 978-5-496-01395-6
 
-[Георгий Курячий, Кирилл Маслинский. Операционная система Linux](/books/ssw/OS_Linux_Maslinskyy_Kuryachiy.pdf)
+Г.В. Курячий, К.А. Маслинский. Операционная система Linux. Курс лекций. 2-е изд. — М.: ALT Linux; ДМК Пресс, 2010
 
-[Денис Колисниченко. Руководство по командам и Shell-программированию в Linux](/books/ssw/Kolisnichenko_Shell_manual.pdf)
+Д.Н. Колисниченко. Руководство по командам и shell-программированию в Linux. — СПб.: БХВ-Петербург, 2011. ISBN 978-5-9775-0619-9
 
-[Мендель Купер. Искусство программирования на языке сценариев командной оболочки](/books/ssw/Advanced_Bash_Scripting_Guide.pdf)
+[Мендель Купер. Искусство программирования на языке сценариев командной оболочки](https://www.opennet.ru/docs/RUS/bash_scripting_guide/) ([оригинал](https://tldp.org/LDP/abs/html/))
 
-[Daniel Bovet, Marco Cesati. Understanding Linux Kernel](/books/ssw/Bovet_Cesati_Understanding_Linux_Kernel.pdf)
+Daniel Bovet, Marco Cesati. Understanding the Linux Kernel. 3rd ed. — O'Reilly. ISBN 978-0-596-00565-8
 
 Остальное напишу позже.

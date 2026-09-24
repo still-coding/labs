@@ -11,17 +11,15 @@ showToc: false
 
 ### Книги
 
-[System V x64 ABI](/books/nasm/sysv_x64_abi.pdf)
+[System V x64 ABI](https://gitlab.com/x86-psABIs/x86-64-ABI)
 
-[Intel Software Developer Manual volume 1](/books/nasm/intel_sdm_vol1.pdf)
+[Intel 64 and IA-32 Architectures Software Developer's Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html)
 
-[Intel Software Developer Manual volume 2](/books/nasm/intel_sdm_vol2.pdf)
+Jeff Duntemann. Assembly Language Step-by-Step. 3rd ed. — Wiley, 2009
 
-[Jeff Duntemann. Assembly Language Step-by-Step](/books/nasm/Duntemann_Assembly_Language_Step-By-Step.pdf)
+Jo Van Hoey. Beginning x64 Assembly Programming. — Apress, 2019. ISBN 978-1-4842-5075-4
 
-[Jo Van Hoey. Beginning x64 Assembly Programming](/books/nasm/Van_Hoey_Beginning_x64_Assembly.pdf)
-
-[Ray Seyfarth. Introduction to 64bit Intel Assembly Language Programming for Linux](/books/nasm/Seyfarth_Introduction_to_64bit_Intel_Assembly.pdf)
+Ray Seyfarth. Introduction to 64 Bit Intel Assembly Language Programming for Linux. — 2011. ISBN 978-1466470033
 
 [А.В. Столяров. Программирование: введение в профессию. Том I: Азы программирования](http://www.stolyarov.info/books/pdf/progintro_e2v1.pdf)
 

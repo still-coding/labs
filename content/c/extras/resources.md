@@ -10,13 +10,13 @@ showToc: false
 ---
 ### Книги
 
-[Брайан Керниган, Деннис Ритчи. Язык программирования C](/books/c/kernighan_ritchie_the_c_programming_language.pdf)
+Брайан Керниган, Деннис Ритчи. Язык программирования C
 
-[А.В. Столяров. Низкоуровневое программирование](/books/c/stolyarov_nizkourovnevoe_programmirovanie_vol2.pdf)
+[А.В. Столяров. Программирование: введение в профессию. Том II: Системы и сети](http://www.stolyarov.info/books/pdf/progintro_e2v2.pdf)
 
-[Герберт Шилдт. Полный справочник по C](/books/c/shildt_polnyy_spravochnok_po_c.djvu)
+Герберт Шилдт. Полный справочник по C
 
-[Артур Гриффитс. GCC](/books/c/griffith_gcc_the_complete_reference.djvu)
+Артур Гриффитс. GCC. Полное руководство. — К.: ДиаСофт, 2004. ISBN 966-7992-34-9
 
 
 ### Курсы

@@ -190,3 +190,11 @@ params:
 # #         guessSyntax: true
 # #         lineNos: true
 # #         style: monokai
+
+# static/books stays on disk but is neither built nor committed (see .gitignore):
+# the pages link to official sources or give a plain bibliographic reference instead
+module:
+  mounts:
+    - source: static
+      target: static
+      files: ["! books/**"]

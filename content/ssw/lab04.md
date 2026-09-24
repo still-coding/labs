@@ -163,8 +163,8 @@ INNER JOIN shops ON components.shop_id = shops.shop_id;
 
 > Для разработки с GTK+ могут быть полезными:
 > * [GTK Tutorials](https://developer.gnome.org/documentation/tutorials.html)
-> * [Tim-Philipp Müller. GTK+ 2.0 Tree View Tutorial](/books/ssw/lab04/muller_treeview_tutorial.pdf)
-> * [Andrew Krause. Foundations of GTK+ Development](/books/ssw/lab04/krause_foundations_of_GTK.pdf)
+> * [GTK 3 Tree View Tutorial (по туториалу Tim-Philipp Müller)](https://docs.gtk.org/gtk3/treeview-tutorial.html)
+> * Andrew Krause. Foundations of GTK+ Development. — Apress, 2007. ISBN 978-1-59059-793-4
 
 
 #### GTK+3. Сборка в Windows

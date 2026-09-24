@@ -53,9 +53,9 @@ showToc: true
 
 ### Почитать
 
-1. [theForger's Win32 API Tutorial](/books/ssw/lab03/forgers_win32_tutorial.pdf)
-2. [Чарльз Петцольд. Программирование для Windows 95](/books/ssw/lab03/petzold_programming_windows.pdf)
-3. [Джеффри Рихтер, Кристоф Назар. Windows via C/C++](/books/ssw/lab03/richter_windows_via_c_cpp.pdf)
+1. [theForger's Win32 API Tutorial](http://www.winprog.org/tutorial/)
+2. Чарльз Петцольд. Программирование для Windows 95
+3. Джеффри Рихтер, Кристоф Назар. Windows via C/C++
 
 ### Необходимые пакеты
 

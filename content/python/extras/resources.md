@@ -10,13 +10,13 @@ showToc: false
 ---
 ### Книги
 
-[Марк Лутц. Изучаем Python. Том 1](/books/python/LearningPython5ed1volMarkLutz.pdf)
+Марк Лутц. Изучаем Python. Том 1. 5-е изд. — СПб.: Диалектика, 2019. ISBN 978-5-907144-52-1
 
-[Марк Лутц. Изучаем Python. Том 2](/books/python/LearningPython5ed2volMarkLutz.pdf)
+Марк Лутц. Изучаем Python. Том 2. 5-е изд. — СПб.: Диалектика, 2020. ISBN 978-5-907144-53-8
 
-[Allen Downey. Think Python](/books/python/thinkpython2.pdf)
+[Allen Downey. Think Python](https://greenteapress.com/wp/think-python-2e/)
 
-[SICP (Berkeley Python version)](/books/python/sicp_python.zip)
+[John DeNero. Composing Programs (SICP на Python)](https://www.composingprograms.com/)
 
 
 ### Курсы

@@ -16,14 +16,14 @@ TocOpen: false
 2. Написать параллельный вариант с использованием `pthreads`.
 > Материалы:
 > * Справка в вашем дистрибутиве Linux `man pthreads`
-> * Глава 11 книги [Разработка Linux-приложений Д. Колисниченко](/books/ssw/Kolisnichenko_Linux_app_dev.pdf)
+> * Глава 11 книги Д.Н. Колисниченко. Разработка Linux-приложений. — СПб.: БХВ-Петербург, 2012. ISBN 978-5-9775-0747-9
 > * Хабр - [Pthreads: Потоки в русле POSIX](https://habr.com/ru/post/326138/)
 > * Руководство на сайте [RANDU](https://randu.org/tutorials/threads/)
 > * Руководство на сайте [университета Карнеги-Меллона](https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html)
 
 3. Написать параллельный вариант с использованием OpenMP.
 > Материалы:
-> * Учебное пособие [А.С. Антонова "Параллельное программирование с использованием технологии OpenMP"](/books/ssw/lab06/Antonov_OpenMP.pdf)
+> * Учебное пособие [А.С. Антонова "Параллельное программирование с использованием технологии OpenMP"](https://parallel.ru/info/parallel/openmp)
 > * Руководства на сайте [OpenMP](https://www.openmp.org/resources/tutorials-articles/)
 > * Руководство на сайте [Ливерморской национальной лаборатории](https://hpc-tutorials.llnl.gov/openmp/)
 
