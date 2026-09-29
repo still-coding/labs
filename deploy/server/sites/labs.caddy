@@ -1,5 +1,7 @@
 # labs.evil-teacher.ru — the Hugo site. CI rsyncs ./public into /srv/labs as the `deploy` user.
-http://labs.evil-teacher.ru {
+# Caddy owns TLS (Let's Encrypt) and redirects HTTP to HTTPS by itself: the DNS record is not
+# proxied, because Russian ISPs throttle Cloudflare to the first ~16 KB of every response.
+labs.evil-teacher.ru {
 	root * /srv/labs
 	encode zstd gzip
 	file_server

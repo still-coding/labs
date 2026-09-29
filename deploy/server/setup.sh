@@ -76,12 +76,20 @@ fi
 systemctl reload caddy
 
 echo "==> smoke test, straight to the origin"
-sleep 1
-for host in "$FLY_HOST" evil-teacher.ru www.evil-teacher.ru labs.evil-teacher.ru; do
-	printf '    %-24s %s\n' "$host" \
-		"$(curl -s -o /dev/null -w '%{http_code}' -H "Host: $host" http://127.0.0.1/)"
+# Caddy fetches Let's Encrypt certificates in the background after the reload, which takes a few
+# seconds per name once DNS points here (DNS only, not proxied). HTTP should answer 308 to HTTPS.
+for host in evil-teacher.ru www.evil-teacher.ru labs.evil-teacher.ru "$FLY_HOST"; do
+	http="$(curl -s -o /dev/null -w '%{http_code}' -H "Host: $host" http://127.0.0.1/)"
+	https=000
+	for _ in $(seq 20); do
+		https="$(curl -s -o /dev/null -w '%{http_code}' --resolve "$host:443:127.0.0.1" "https://$host/")"
+		[ "$https" != 000 ] && break
+		sleep 3
+	done
+	printf '    %-24s http %s   https %s\n' "$host" "$http" "$https"
 done
-echo "    (labs answers 404 until the first CI deploy fills /srv/labs)"
+echo "    https 000: no certificate yet — is the record DNS only and pointing here? journalctl -u caddy"
+echo "    $FLY_HOST gets HTTPS from its own deploy: anti_fly, deploy/push.sh"
 
 echo
 echo "backup of the old config: $BACKUP"

@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# Point Cloudflare DNS at a finished deploy: the proxied A record for the site, then DNSLink at
-# its CID. Run last — once the files are on the origin and the CID is pinned — so nothing ever
-# points at content that is not being served yet.
+# Point Cloudflare DNS at a finished deploy: the A record for the site, then DNSLink at its CID.
+# The A record is NOT proxied: Russian ISPs throttle Cloudflare to the first ~16 KB of a response,
+# so visitors go straight to the VPS and Caddy serves HTTPS itself.
+#
+# Run last — once the files are on the origin and the CID is pinned — so nothing ever points at
+# content that is not being served yet.
 #
 #   CF_API_TOKEN=... ZONE=evil-teacher.ru DOMAIN=labs.evil-teacher.ru \
 #   ORIGIN_IP=81.200.144.62 CID=bafy... deploy/cloudflare-dns.sh
@@ -48,5 +51,5 @@ if [ -z "$ZONE_ID" ]; then
 	exit 1
 fi
 
-upsert A "$DOMAIN" "$ORIGIN_IP" true
+upsert A "$DOMAIN" "$ORIGIN_IP" false
 upsert TXT "_dnslink.$DOMAIN" "\"dnslink=/ipfs/$CID\"" false

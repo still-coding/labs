@@ -1,6 +1,6 @@
-# evil-teacher.ru — a placeholder page. Also the catch-all: any Host no other file claims
-# (the bare IP, a subdomain someone forgot to configure) lands here rather than on a real site.
-http://evil-teacher.ru, :80 {
+# evil-teacher.ru — a placeholder page, over HTTPS from Caddy (Let's Encrypt).
+
+(placeholder) {
 	root * /srv/root
 	encode zstd gzip
 	file_server
@@ -18,8 +18,18 @@ http://evil-teacher.ru, :80 {
 	}
 }
 
-# www is only an alias. Redirecting to another host over https is safe behind the proxy;
-# what loops is a redirect from http:// to https:// on the same name.
-http://www.evil-teacher.ru {
+evil-teacher.ru {
+	import placeholder
+}
+
+# www is only an alias
+www.evil-teacher.ru {
 	redir https://evil-teacher.ru{uri} permanent
+}
+
+# Plain-HTTP catch-all: the bare IP, or a name nobody configured, gets the placeholder rather
+# than a real site. Named sites above still get Caddy's HTTP-to-HTTPS redirect — more specific
+# hosts win over this block.
+:80 {
+	import placeholder
 }

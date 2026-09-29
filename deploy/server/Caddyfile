@@ -5,7 +5,10 @@
 #   root.caddy       labs repo, deploy/server/sites/ (placeholder on the bare domain)
 #   anti-fly.caddy   anti_fly repo, deploy/push.sh
 #
-# Everything sits behind Cloudflare's proxy with SSL mode Flexible: the origin speaks plain HTTP
-# and must never redirect HTTP to HTTPS, or every request loops through the proxy forever.
+# DNS lives in Cloudflare but no record is proxied: Russian ISPs throttle Cloudflare to the first
+# ~16 KB of a response, which breaks every page with a stylesheet. So visitors reach this box
+# directly and Caddy owns TLS — Let's Encrypt certificates and the HTTP-to-HTTPS redirects.
+# Never turn the orange cloud back on for these names: with Caddy redirecting to HTTPS behind
+# a Flexible proxy, every request would loop.
 
 import /etc/caddy/sites/*.caddy

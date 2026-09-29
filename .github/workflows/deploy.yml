@@ -97,9 +97,9 @@ jobs:
             -e "ssh -i $HOME/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=deploy/known_hosts" \
             public/ "deploy@${ORIGIN_IP}:."
           rm -f ~/deploy_key
-          # straight to the origin, past Cloudflare
-          curl -fsS -o /dev/null -H "Host: $DOMAIN" "http://$ORIGIN_IP/"
-          echo "origin serves $DOMAIN"
+          # straight to the origin over HTTPS, whatever DNS says right now
+          curl -fsS -o /dev/null --resolve "$DOMAIN:443:$ORIGIN_IP" "https://$DOMAIN/"
+          echo "origin serves https://$DOMAIN"
 
       - name: Point DNS at this deploy
         env:

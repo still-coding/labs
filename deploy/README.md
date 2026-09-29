@@ -2,14 +2,16 @@
 
 Сайт живёт в двух местах сразу:
 
-- **HTTP** — https://labs.evil-teacher.ru: Caddy на VPS `81.200.144.62`, перед ним прокси Cloudflare (SSL *Flexible*).
+- **HTTP** — https://labs.evil-teacher.ru: Caddy на VPS `81.200.144.62`, HTTPS от Let's Encrypt. DNS в Cloudflare, но
+  **без прокси** (серое облако): российские провайдеры режут Cloudflare до первых ~16 КБ ответа.
 - **IPFS** — CAR пинится в Filebase, `_dnslink.labs.evil-teacher.ru` указывает на CID. В Brave: `ipns://labs.evil-teacher.ru`.
+  Гейтвей Filebase из России без VPN режется так же, как Cloudflare: IPFS-копия — для тех, кто с VPN или со своей нодой.
 
 Каждый push в `main` запускает `.github/workflows/deploy.yml`:
 
 ```
 hugo --minify → site.car → CID → пин в Filebase (сверка CID) → rsync на VPS
-             → DNS: A labs (proxied) + TXT _dnslink → чистка старых пинов (последние 5 остаются)
+             → DNS: A labs (DNS only) + TXT _dnslink → чистка старых пинов (последние 5 остаются)
 ```
 
 DNS обновляется последним: имя никогда не указывает на то, что ещё не лежит на сервере и не запинено.
@@ -24,7 +26,9 @@ DNS обновляется последним: имя никогда не ука
 | `fly.evil-teacher.ru` | anti_fly, `/srv/anti-fly` | репозиторий anti_fly, `deploy/push.sh` |
 
 `/etc/caddy/Caddyfile` только импортирует `/etc/caddy/sites/*.caddy`, и каждый деплой пишет лишь свой файл.
-Origin говорит только по HTTP и никогда не редиректит на HTTPS, иначе запросы зациклятся через прокси.
+Сертификаты Let's Encrypt Caddy получает и продлевает сам. **Оранжевое облако не включать**: провайдеры режут
+Cloudflare, а Caddy, редиректящий HTTP на HTTPS за прокси в режиме *Flexible*, зацикливает запросы.
+Проверить доступность без VPN: `deploy/check-reachability.sh`.
 
 ## Разовая настройка
 
