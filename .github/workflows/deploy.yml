@@ -67,10 +67,23 @@ jobs:
             fb s3api put-object --bucket "$FILEBASE_BUCKET" --key "$KEY" \
               --body site.car --metadata import=car >/dev/null
           fi
-          GOT=$(fb s3api head-object --bucket "$FILEBASE_BUCKET" --key "$KEY" \
-                  --query Metadata.cid --output text)
-          echo "Filebase CID: $GOT"
-          test "$GOT" = "$CID"
+          echo "object metadata: $(fb s3api head-object --bucket "$FILEBASE_BUCKET" --key "$KEY" \
+                                     --query Metadata --output json)"
+          # Filebase's docs promise the cid in the object metadata, but head-object does not
+          # return it for an imported CAR. Check it the way a visitor would instead: our root,
+          # fetched from Filebase's gateway, must serve this build's index.html byte for byte.
+          # Up to 5 minutes, since the import of a fresh CAR takes a moment.
+          for i in $(seq 30); do
+            if curl -fsS -m 60 -o gateway.html "https://ipfs.filebase.io/ipfs/${CID}/index.html" \
+                && cmp -s gateway.html public/index.html; then
+              echo "pinned and served: ${CID}"
+              exit 0
+            fi
+            echo "waiting for Filebase to serve ${CID} ($i/30)"
+            sleep 10
+          done
+          echo "Filebase does not serve ${CID}/index.html matching this build" >&2
+          exit 1
 
       - name: Deploy to VPS
         env:
